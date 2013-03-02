@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "tweets/show" do
+describe "entries/show" do
   before(:each) do
-    @tweet = assign(:tweet, stub_model(Tweet,
+    @entry = assign(:entry, stub_model(Entry,
       :body => "Body"
     ))
   end

@@ -1,5 +1,10 @@
 Dame09plus::Application.routes.draw do
-  resources :tweets
+  namespace :admin do
+    resources :entries
+  end
+
+
+  resources :entries
 
 
   get "public/index"

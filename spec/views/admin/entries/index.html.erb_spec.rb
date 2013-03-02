@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe "tweets/index" do
+describe "admin/entries/index" do
   before(:each) do
-    assign(:tweets, [
-      stub_model(Tweet,
+    assign(:admin_entries, [
+      stub_model(Admin::Entry,
         :body => "Body"
       ),
-      stub_model(Tweet,
+      stub_model(Admin::Entry,
         :body => "Body"
       )
     ])
   end
 
-  it "renders a list of tweets" do
+  it "renders a list of admin/entries" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Body".to_s, :count => 2
