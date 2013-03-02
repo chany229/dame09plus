@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true
+  validates_uniqueness_of :comment, :scope => [:commentable_id, :commentable_type], :message => "不能重复提交。"
 
   default_scope :order => 'created_at ASC'
 
