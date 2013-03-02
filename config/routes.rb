@@ -1,12 +1,10 @@
 Dame09plus::Application.routes.draw do
+
   namespace :admin do
+    resources :articles
     resources :entries
   end
-
-
-  resources :entries
-
-
+  
   get "public/index"
 
   get "public/list"

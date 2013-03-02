@@ -1,0 +1,25 @@
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>Entry</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.entry_id %></td>
+    <td><%= article.body %></td>
+    <td><%= link_to 'Show', [:admin, article] %></td>
+    <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+    <td><%= link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_admin_article_path %>

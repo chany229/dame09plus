@@ -1,5 +1,6 @@
 class Admin::EntriesController < ApplicationController
- # GET /entries
+  layout "admin"
+  # GET /entries
   # GET /entries.json
   def index
     @entries = Entry.all
