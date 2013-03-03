@@ -1,5 +1,7 @@
 Dame09plus::Application.routes.draw do
 
+  get "admin/index"
+
   namespace :admin do
     resources :articles
     resources :entries

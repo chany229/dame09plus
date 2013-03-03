@@ -36,6 +36,7 @@ class Admin::EntriesController < ApplicationController
   # GET /entries/1/edit
   def edit
     @entry = Entry.find(params[:id])
+    @entry.tags_with_space = @entry.tag_list.split(",").join(" ")
   end
 
   # POST /entries
