@@ -1,0 +1,130 @@
+html {
+	width: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	color: #f8b500;
+	background-color: #000;
+}
+a{
+        color: #f8b500;
+        &:visited{
+            color: #f8b500;
+        }
+        &:hover{
+            color: #f8b500;
+        }
+        &:active{
+            color: #f8b500;
+        }
+    }
+div,ul,li {
+	margin:0;
+	padding:0;
+}
+span {display: inline-block;}
+hr {
+    height: 1px;
+    border: none;
+    border-top: 1px dashed #f8b500;
+}
+table, tr, td{
+    vertical-align: top;
+}
+table {
+    width: 100%;
+}
+input[type=text],input[type=password],textarea{
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #f8b500;
+}
+input[type=text]:focus,input[type=password]:focus,textarea:focus{
+    transition: border linear .2s,box-shadow linear .5s;
+    -moz-transition: border linear .2s,-moz-box-shadow linear .5s;
+    -o-transition: border linear .2s,-moz-box-shadow linear .5s;
+    -webkit-transition: border linear .2s,-webkit-box-shadow linear .5s;
+    outline: none;
+    border-color: #f8b500;
+    box-shadow: 0 0 8px #f8b500;
+    -moz-box-shadow: 0 0 8px #f8b500;
+    -o-box-shadow: 0 0 8px #f8b500;
+    -webkit-box-shadow: 0 0 8px #f8b500;
+}
+header, footer {
+	height: 20px;
+	width: 100%;
+	background-color: #000;
+	clear:both;
+}
+header {
+}
+footer {
+	text-align:center;
+}
+#container {
+	width: 100%;
+	overflow:hidden;
+}
+#side, #content {
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
+	min-height: 600px;
+}
+#side {
+	width: 240px;
+	background-color: #a22041;
+	float:left;
+	background-image: url(/assets/bg01.png);
+}
+#content {
+	margin-left: 240px;
+	background-color: #460e44;
+	padding-top: 20px;
+	padding-left: 20px;
+	background-image: url(/assets/bg02.png);
+}
+#side ul a {
+	color: #f8b500;
+	text-decoration: none;
+}
+#side ul li {
+	background-image: url(/assets/side_btn.png);
+	height: 20px;
+	width: 220px;
+	margin-left: 40px;
+	list-style-type: none;
+	margin:20px -20px 20px 20px;
+	padding: 10px;
+}
+#side ul li {
+	background-image: url(/assets/side_btn.png);
+	height: 20px;
+	width: 220px;
+	margin-left: 40px;
+	list-style-type: none;
+	margin:20px -20px 20px 20px;
+	padding: 10px;
+}
+#side ul li:hover {
+	margin-left: 40px;
+}
+#face {
+	margin: 19px;
+	border: 1px solid #f8b500;
+}
+#calendar {
+  margin: 19px;
+  border: 1px solid #f8b500;
+  background-color: #000;
+}
+#content h1 {
+	margin: 0px;
+}
+#canvas_body {
+	margin: 40px;
+}

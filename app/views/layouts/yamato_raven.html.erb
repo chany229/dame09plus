@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Dame09</title>
+    <%= stylesheet_link_tag    "yamato_raven", :media => "all" %>
+    <%= javascript_include_tag "application","canvas_test" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <header>1111</header>
+  <div id="container">
+    <div id="side">
+    	<div id="calendar">
+      <%= render "public/calendar", :datetime => @date %>
+      </div>
+      <ul>
+        <a href="#">
+          <li>TOP</li>
+        </a>
+        <li>IMAGES</li>
+        <li>GAMES</li>
+      </ul>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </div>
+  <footer>22222</footer>
+  <%= query_review_output %>
+</body>
+</html>

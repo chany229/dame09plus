@@ -50,8 +50,8 @@ group :development, :test do
   gem 'capybara', '1.1.2'
 end
 
-#gem 'therubyracer'
-#gem 'execjs'
+gem 'therubyracer'
+gem 'execjs'
 
 #用户认证
 #gem "devise", '2.1.0'
@@ -73,3 +73,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'bootstrap_helper'
 #gem "less-rails", "~> 2.2.6"
 #gem 'therubyracer-heroku', :platform => :ruby
+
+
+gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"#检查查询语句
+
+gem "rails-settings-cached", "0.2.4"

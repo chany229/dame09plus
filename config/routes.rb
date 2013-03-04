@@ -7,11 +7,12 @@ Dame09plus::Application.routes.draw do
     resources :entries
   end
   
-  get "public/index"
-
-  get "public/list"
-
-  get "public/detail"
+  match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
+  
+  match 'list(/p:page)' => 'public#list', :as => :list
+  match 'list/:year(/p:page)' => 'public#list',:as => :year
+  match 'list/:year/:month(/p:page)' => 'main#list',:as => :month
+  match 'list/:year/:month/:day(/p:page)' => 'main#list',:as => :day
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
