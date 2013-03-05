@@ -7,7 +7,7 @@ class PublicController < ApplicationController
 
   def list
     per_page = AppConfig.entries_perpage
-    page     = params[:page]||1
+    @page    = params[:page]||1
     now      = Time.now
     @year    = params[:year] ||now.year
     @month   = params[:month]||now.month
@@ -20,7 +20,10 @@ class PublicController < ApplicationController
     elsif params[:year]
       conditions = ["created_at > ? and created_at < ?", Time.new(@year,1,1).beginning_of_year, Time.new(@year,1,1).end_of_year]
     end
-    @entries = Entry.where(conditions).order('created_at desc').paginate(:page => page, :per_page => per_page)
+    @entries = Entry.where(conditions).order('created_at desc').paginate(:page => @page, :per_page => per_page)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def detail

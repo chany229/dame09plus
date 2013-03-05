@@ -1,8 +1,8 @@
 <html>
   <head>
-    <title>Dame09</title>
+    <title>马太目欢乐颂+</title>
     <%= stylesheet_link_tag    "yamato_raven", :media => "all" %>
-    <%= javascript_include_tag "application","canvas_test" %>
+    <%= javascript_include_tag "application","hashchange","ajax","canvas_test" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -11,9 +11,7 @@
   <header>1111</header>
   <div id="container">
     <div id="side">
-    	<div id="calendar">
-      <%= render "public/calendar", :datetime => @date %>
-      </div>
+      <a href="/profile" title="关于六十"><img id="face" src="/assets/face.png" alt="六十"></a>
       <ul>
         <a href="#">
           <li>TOP</li>
@@ -21,6 +19,9 @@
         <li>IMAGES</li>
         <li>GAMES</li>
       </ul>
+      <div id="calendar">
+      	<%= render "public/calendar", :datetime => @date %>
+      </div>
     </div>
     <div id="content">
       <%= yield %>
