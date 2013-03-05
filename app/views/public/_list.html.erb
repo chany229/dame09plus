@@ -1,3 +1,8 @@
-<% @entries.each do |entry| %>
-<%= render "public/entry", :entry => entry %>
-<% end %>
+<div id="entries">
+	<%= render "entries" %>
+</div>
+<div id="filters">
+	<div id="calendar">
+		<%= render "public/calendar", :datetime => @date %>
+	</div>
+</div>

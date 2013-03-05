@@ -13,15 +13,10 @@
     <div id="side">
       <a href="/profile" title="关于六十"><img id="face" src="/assets/face.png" alt="六十"></a>
       <ul>
-        <a href="#">
-          <li>TOP</li>
-        </a>
-        <li>IMAGES</li>
+      	<%= link_to(raw("<li>TOP</li>"), "/top.js", :remote => true)%>
+      	<%= link_to(raw("<li>LIST</li>"), "/list.js", :remote => true)%>
         <li>GAMES</li>
       </ul>
-      <div id="calendar">
-      	<%= render "public/calendar", :datetime => @date %>
-      </div>
     </div>
     <div id="content">
       <%= yield %>

@@ -9,66 +9,106 @@ $(window).hashchange(function() {
 });
 function doHash(a) {
 	var h = location.hash;
-	var h2 = h.split("#");
-	if (h2.length>1){
-	var action = h2[1].split("|")[0];
-	}
+	var action = h.split("|")[0];
 	if (h == "") {
 		//setHash("#top");
-	} else if (action == "list") {
+	} else if (action == "#list") {
 		listFn();
+	} else if (action == "#date") {
+		dateFn();
 	} else if (h.indexOf("play_video") > -1) {
 		videoFn();
 	} else {
-		defaultFn(a);
+		defaultFn(action);
 	}
 
 }
 
 function defaultFn(a) {
+	a = a.split("#")[1];
 	$.ajax({
 		url : '/' + a + '.js',
 		type : 'GET',
 		//data     : data,
 		dataType : 'script'
 	});
-	setHash("#" + action);
+	setHash(a);
 }
 
 function listFn() {
 	var h = location.hash;
 	var params = h.split("|");
+	if (params.length > 1) {
+		var page = params[1].split("p")[1];
+		$.ajax({
+			url : "list/p" + page + ".js",
+			type : "GET",
+			dataType : "script"
+		});
+		setHash("list|p" + page);
+	} else {
+		$.ajax({
+			url : "list.js",
+			type : "GET",
+			dataType : "script"
+		});
+		setHash("list");
+	}
+}
+
+function dateFn() {
+	var h = location.hash;
+	var params = h.split("|");
 	var size = params.length;
-	var year,month,day,page;
+	var year, month, day, page;
 	var has_year = has_month = has_day = has_page = false;
 	//var year = month = day = page = false;
-	for (p in params){
-		if(p[0] == 'y'){
-			year = p[0].split("y")[1];
+	for (p in params) {
+		if (params[p][0] == "y") {
+			year = params[p].split("y")[1];
 			has_year = true;
-		} else if (p[0] == "m"){
-			month = p[0].split("m")[1];
+		} else if (params[p][0] == "m") {
+			month = params[p].split("m")[1];
 			has_month = true;
-		} else if (p[0] == "d"){
-			day = p[0].split("d")[1];
+		} else if (params[p][0] == "d") {
+			day = params[p].split("d")[1];
 			has_day = true;
-		} else if (p[0] == "p"){
-			page = p[0].split("p")[1];
+		} else if (params[p][0] == "p") {
+			page = params[p].split("p")[1];
 			has_page = true;
 		}
 	}
-	var url = "/list";
-	var hash = "#list"
-	if (has_year){ url += "/" + year; hash += "|y" + year;}
-	if (has_month){ url += "/" + month; hash += "|m" + month;}
-	if (has_day){ url += "/" + day; hash += "|d" + day;}
-	if (has_page){ url += "/p" + page; hash += "|p" + page;}
+	var url = "/date";
+	var hash = "#date"
+	if (has_year) {
+		url += "/" + year;
+		hash += "|y" + year;
+		if (has_month) {
+			url += "/" + month;
+			hash += "|m" + month;
+			if (has_day) {
+				url += "/" + day;
+				hash += "|d" + day;
+			}
+		}
+	}
+	if (has_page) {
+		url += "/p" + page;
+		hash += "|p" + page;
+	}
+	if (!$("#entries")[0]) {
+		$.ajax({
+			url : "list.js?donotsethash=1",
+			type : "GET",
+			dataType : "script"
+		});
+	}
 	$.ajax({
 		url : url + ".js",
 		type : "GET",
 		dataType : "script"
 	});
-	//setHash(hash);
+	setHash(hash);
 }
 
 function videoFn() {

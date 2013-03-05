@@ -28,13 +28,12 @@ span {display: inline-block;}
 hr {
     height: 1px;
     border: none;
-    border-top: 1px dashed #f8b500;
+    border-top: 1px solid #000;
 }
 table, tr, td{
     vertical-align: top;
 }
 table {
-    width: 100%;
 }
 input[type=text],input[type=password],textarea{
     border-radius: 5px;
@@ -118,9 +117,9 @@ footer {
 	border: 1px solid #f8b500;
 }
 #calendar {
-  margin: 19px;
+  margin: 0 19px;
   border: 1px solid #000;
-  background-color: #a22041;
+  background-color: rgba(162, 32, 65, 0.7);
   color: #000;
   table {
     color: #000;
@@ -135,8 +134,16 @@ footer {
 #canvas_body {
 	margin: 40px;
 }
+#entries {
+  float: left;
+}
+#filters {
+  float: left;
+  width: 240px;
+}
 .entry {
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7);
   width: 450px;
   padding: 20px;
+  margin: 0 0 20px;
 }

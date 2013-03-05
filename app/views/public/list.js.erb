@@ -1,2 +1,4 @@
 $("#content").html("<%= escape_javascript render "public/list" %>");
-//setHash("<%= "#list|y#{@year}|m#{@month}|d#{@day}|p#{@page}"%>");
+<% if @sethash %>
+setHash("<%= @hash %>");
+<% end %>
