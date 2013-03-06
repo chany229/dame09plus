@@ -9,17 +9,17 @@ body {
 	background-color: #000;
 }
 a{
-        color: #f8b500;
-        &:visited{
-            color: #f8b500;
-        }
-        &:hover{
-            color: #f8b500;
-        }
-        &:active{
-            color: #f8b500;
-        }
-    }
+  color: #f8b500;
+  &:visited{
+    color: #f8b500;
+  }
+  &:hover{
+    color: #f8b500;
+  }
+  &:active{
+    color: #f8b500;
+  }
+}
 div,ul,li {
 	margin:0;
 	padding:0;
@@ -104,12 +104,11 @@ footer {
 	background-image: url(/assets/side_btn.png);
 	height: 20px;
 	width: 220px;
-	margin-left: 40px;
 	list-style-type: none;
 	margin:20px -20px 20px 20px;
 	padding: 10px;
 }
-#side ul li:hover {
+#side ul li.current, #side ul li:hover {
 	margin-left: 40px;
 }
 #face {

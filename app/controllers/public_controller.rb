@@ -4,12 +4,13 @@ class PublicController < ApplicationController
     @date = Time.now
     @tags = Entry.tag_counts_on(:tags).order('count desc')
     respond_to do |format|
-      format.html
+      format.html { render :layout => false }
     end
   end
   
   def top
     respond_to do |format|
+      format.html
       format.js
     end
   end
