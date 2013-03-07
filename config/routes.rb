@@ -9,13 +9,14 @@ Dame09plus::Application.routes.draw do
   
   match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
   
+  match 'detail(.:format)' => 'public#detail', :as => :detail
   match 'top(.:format)' => 'public#top', :as => :top
   
-  match 'list((/p:page).:format)' => 'public#list', :as => :list
+  match 'list(/p:page)(.:format)' => 'public#list', :as => :list
   
-  match 'date/:year((/p:page).:format)' => 'public#date',:as => :year
-  match 'date/:year/:month((/p:page).:format)' => 'public#date',:as => :month
-  match 'date/:year/:month/:day((/p:page).:format)' => 'public#date',:as => :day
+  match 'date/:year(/p:page)(.:format)' => 'public#date',:as => :year
+  match 'date/:year/:month(/p:page)(.:format)' => 'public#date',:as => :month
+  match 'date/:year/:month/:day(/p:page)(.:format)' => 'public#date',:as => :day
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

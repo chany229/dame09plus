@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "admin/entries/show" do
   before(:each) do
-    @admin_entry = assign(:admin_entry, stub_model(Admin::Entry,
+    @entry = assign(:entry, stub_model(Entry,
       :body => "Body"
     ))
   end

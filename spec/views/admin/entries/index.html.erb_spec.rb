@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe "admin/entries/index" do
   before(:each) do
-    assign(:admin_entries, [
-      stub_model(Admin::Entry,
+    assign(:entries, [
+      stub_model(Entry,
         :body => "Body"
       ),
-      stub_model(Admin::Entry,
+      stub_model(Entry,
         :body => "Body"
       )
     ])

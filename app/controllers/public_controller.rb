@@ -26,6 +26,7 @@ class PublicController < ApplicationController
     @sethash = true unless params[:donotsethash]
     respond_to do |format|
       format.js
+      format.html
     end
   end
 
@@ -58,6 +59,10 @@ class PublicController < ApplicationController
   end
 
   def detail
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def calendar

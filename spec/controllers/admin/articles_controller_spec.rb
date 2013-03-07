@@ -35,68 +35,68 @@ describe Admin::ArticlesController do
   end
 
   describe "GET index" do
-    it "assigns all admin_articles as @admin_articles" do
-      article = Admin::Article.create! valid_attributes
+    it "assigns all articles as @articles" do
+      article = Article.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:admin_articles).should eq([article])
+      assigns(:articles).should eq([article])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested admin_article as @admin_article" do
-      article = Admin::Article.create! valid_attributes
+    it "assigns the requested article as @article" do
+      article = Article.create! valid_attributes
       get :show, {:id => article.to_param}, valid_session
-      assigns(:admin_article).should eq(article)
+      assigns(:article).should eq(article)
     end
   end
 
   describe "GET new" do
-    it "assigns a new admin_article as @admin_article" do
+    it "assigns a new article as @article" do
       get :new, {}, valid_session
-      assigns(:admin_article).should be_a_new(Admin::Article)
+      assigns(:article).should be_a_new(Article)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested admin_article as @admin_article" do
-      article = Admin::Article.create! valid_attributes
+    it "assigns the requested article as @article" do
+      article = Article.create! valid_attributes
       get :edit, {:id => article.to_param}, valid_session
-      assigns(:admin_article).should eq(article)
+      assigns(:article).should eq(article)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Admin::Article" do
+      it "creates a new Article" do
         expect {
-          post :create, {:admin_article => valid_attributes}, valid_session
-        }.to change(Admin::Article, :count).by(1)
+          post :create, {:article => valid_attributes}, valid_session
+        }.to change(Article, :count).by(1)
       end
 
-      it "assigns a newly created admin_article as @admin_article" do
-        post :create, {:admin_article => valid_attributes}, valid_session
-        assigns(:admin_article).should be_a(Admin::Article)
-        assigns(:admin_article).should be_persisted
+      it "assigns a newly created article as @_article" do
+        post :create, {:article => valid_attributes}, valid_session
+        assigns(:article).should be_a(Article)
+        assigns(:article).should be_persisted
       end
 
-      it "redirects to the created admin_article" do
-        post :create, {:admin_article => valid_attributes}, valid_session
-        response.should redirect_to(Admin::Article.last)
+      it "redirects to the created article" do
+        post :create, {:article => valid_attributes}, valid_session
+        response.should redirect_to([:admin, Article.last])
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved admin_article as @admin_article" do
+      it "assigns a newly created but unsaved article as @article" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Article.any_instance.stub(:save).and_return(false)
-        post :create, {:admin_article => {  }}, valid_session
-        assigns(:admin_article).should be_a_new(Admin::Article)
+        Article.any_instance.stub(:save).and_return(false)
+        post :create, {:article => {  }}, valid_session
+        assigns(:article).should be_a_new(Article)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Article.any_instance.stub(:save).and_return(false)
-        post :create, {:admin_article => {  }}, valid_session
+        Article.any_instance.stub(:save).and_return(false)
+        post :create, {:article => {  }}, valid_session
         response.should render_template("new")
       end
     end
@@ -104,58 +104,58 @@ describe Admin::ArticlesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested admin_article" do
-        article = Admin::Article.create! valid_attributes
+      it "updates the requested _article" do
+        article = Article.create! valid_attributes
         # Assuming there are no other admin_articles in the database, this
         # specifies that the Admin::Article created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Admin::Article.any_instance.should_receive(:update_attributes).with({ "these" => "params" })
-        put :update, {:id => article.to_param, :admin_article => { "these" => "params" }}, valid_session
+        Article.any_instance.should_receive(:update_attributes).with({ "these" => "params" })
+        put :update, {:id => article.to_param, :article => { "these" => "params" }}, valid_session
       end
 
-      it "assigns the requested admin_article as @admin_article" do
-        article = Admin::Article.create! valid_attributes
-        put :update, {:id => article.to_param, :admin_article => valid_attributes}, valid_session
-        assigns(:admin_article).should eq(article)
+      it "assigns the requested article as @article" do
+        article = Article.create! valid_attributes
+        put :update, {:id => article.to_param, :article => valid_attributes}, valid_session
+        assigns(:article).should eq(article)
       end
 
-      it "redirects to the admin_article" do
-        article = Admin::Article.create! valid_attributes
-        put :update, {:id => article.to_param, :admin_article => valid_attributes}, valid_session
-        response.should redirect_to(article)
+      it "redirects to the article" do
+        article = Article.create! valid_attributes
+        put :update, {:id => article.to_param, :article => valid_attributes}, valid_session
+        response.should redirect_to([:admin, article])
       end
     end
 
     describe "with invalid params" do
-      it "assigns the admin_article as @admin_article" do
-        article = Admin::Article.create! valid_attributes
+      it "assigns the article as @article" do
+        article = Article.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Article.any_instance.stub(:save).and_return(false)
-        put :update, {:id => article.to_param, :admin_article => {  }}, valid_session
-        assigns(:admin_article).should eq(article)
+        Article.any_instance.stub(:save).and_return(false)
+        put :update, {:id => article.to_param, :article => {  }}, valid_session
+        assigns(:article).should eq(article)
       end
 
       it "re-renders the 'edit' template" do
-        article = Admin::Article.create! valid_attributes
+        article = Article.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Article.any_instance.stub(:save).and_return(false)
-        put :update, {:id => article.to_param, :admin_article => {  }}, valid_session
+        Article.any_instance.stub(:save).and_return(false)
+        put :update, {:id => article.to_param, :article => {  }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested admin_article" do
-      article = Admin::Article.create! valid_attributes
+    it "destroys the requested article" do
+      article = Article.create! valid_attributes
       expect {
         delete :destroy, {:id => article.to_param}, valid_session
-      }.to change(Admin::Article, :count).by(-1)
+      }.to change(Article, :count).by(-1)
     end
 
-    it "redirects to the admin_articles list" do
-      article = Admin::Article.create! valid_attributes
+    it "redirects to the articles list" do
+      article = Article.create! valid_attributes
       delete :destroy, {:id => article.to_param}, valid_session
       response.should redirect_to(admin_articles_url)
     end

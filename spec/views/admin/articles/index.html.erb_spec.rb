@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe "admin/articles/index" do
   before(:each) do
-    assign(:admin_articles, [
-      stub_model(Admin::Article),
-      stub_model(Admin::Article)
+    assign(:articles, [
+      stub_model(Article),
+      stub_model(Article)
     ])
   end
 

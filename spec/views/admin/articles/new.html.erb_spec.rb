@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "admin/articles/new" do
   before(:each) do
-    assign(:admin_article, stub_model(Admin::Article).as_new_record)
+    assign(:article, stub_model(Article).as_new_record)
   end
 
   it "renders new admin_article form" do

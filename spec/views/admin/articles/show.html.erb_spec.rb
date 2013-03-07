@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "admin/articles/show" do
   before(:each) do
-    @admin_article = assign(:admin_article, stub_model(Admin::Article))
+    @article = assign(:article, stub_model(Article))
   end
 
   it "renders attributes in <p>" do

@@ -36,67 +36,67 @@ describe Admin::EntriesController do
 
   describe "GET index" do
     it "assigns all admin_entries as @admin_entries" do
-      entry = Admin::Entry.create! valid_attributes
+      entry = Entry.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:admin_entries).should eq([entry])
+      assigns(:entries).should eq([entry])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested admin_entry as @admin_entry" do
-      entry = Admin::Entry.create! valid_attributes
+    it "assigns the requested entry as @entry" do
+      entry = Entry.create! valid_attributes
       get :show, {:id => entry.to_param}, valid_session
-      assigns(:admin_entry).should eq(entry)
+      assigns(:entry).should eq(entry)
     end
   end
 
   describe "GET new" do
-    it "assigns a new admin_entry as @admin_entry" do
+    it "assigns a new entry as @entry" do
       get :new, {}, valid_session
-      assigns(:admin_entry).should be_a_new(Admin::Entry)
+      assigns(:entry).should be_a_new(Entry)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested admin_entry as @admin_entry" do
-      entry = Admin::Entry.create! valid_attributes
+    it "assigns the requested entry as @entry" do
+      entry = Entry.create! valid_attributes
       get :edit, {:id => entry.to_param}, valid_session
-      assigns(:admin_entry).should eq(entry)
+      assigns(:entry).should eq(entry)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Admin::Entry" do
+      it "creates a new Entry" do
         expect {
-          post :create, {:admin_entry => valid_attributes}, valid_session
-        }.to change(Admin::Entry, :count).by(1)
+          post :create, {:entry => valid_attributes}, valid_session
+        }.to change(Entry, :count).by(1)
       end
 
-      it "assigns a newly created admin_entry as @admin_entry" do
-        post :create, {:admin_entry => valid_attributes}, valid_session
-        assigns(:admin_entry).should be_a(Admin::Entry)
-        assigns(:admin_entry).should be_persisted
+      it "assigns a newly created entry as @entry" do
+        post :create, {:entry => valid_attributes}, valid_session
+        assigns(:entry).should be_a(Entry)
+        assigns(:entry).should be_persisted
       end
 
-      it "redirects to the created admin_entry" do
-        post :create, {:admin_entry => valid_attributes}, valid_session
-        response.should redirect_to(Admin::Entry.last)
+      it "redirects to the created entry" do
+        post :create, {:entry => valid_attributes}, valid_session
+        response.should redirect_to([:admin, Entry.last])
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved admin_entry as @admin_entry" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Entry.any_instance.stub(:save).and_return(false)
-        post :create, {:admin_entry => { "body" => "invalid value" }}, valid_session
-        assigns(:admin_entry).should be_a_new(Admin::Entry)
+        Entry.any_instance.stub(:save).and_return(false)
+        post :create, {:entry => { "body" => "invalid value" }}, valid_session
+        assigns(:entry).should be_a_new(Entry)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Entry.any_instance.stub(:save).and_return(false)
-        post :create, {:admin_entry => { "body" => "invalid value" }}, valid_session
+        Entry.any_instance.stub(:save).and_return(false)
+        post :create, {:entry => { "body" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -104,58 +104,58 @@ describe Admin::EntriesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested admin_entry" do
-        entry = Admin::Entry.create! valid_attributes
+      it "updates the requested entry" do
+        entry = Entry.create! valid_attributes
         # Assuming there are no other admin_entries in the database, this
         # specifies that the Admin::Entry created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Admin::Entry.any_instance.should_receive(:update_attributes).with({ "body" => "MyString" })
-        put :update, {:id => entry.to_param, :admin_entry => { "body" => "MyString" }}, valid_session
+        Entry.any_instance.should_receive(:update_attributes).with({ "body" => "MyString" })
+        put :update, {:id => entry.to_param, :entry => { "body" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested admin_entry as @admin_entry" do
-        entry = Admin::Entry.create! valid_attributes
-        put :update, {:id => entry.to_param, :admin_entry => valid_attributes}, valid_session
-        assigns(:admin_entry).should eq(entry)
+      it "assigns the requested entry as @entry" do
+        entry = Entry.create! valid_attributes
+        put :update, {:id => entry.to_param, :entry => valid_attributes}, valid_session
+        assigns(:entry).should eq(entry)
       end
 
       it "redirects to the admin_entry" do
-        entry = Admin::Entry.create! valid_attributes
-        put :update, {:id => entry.to_param, :admin_entry => valid_attributes}, valid_session
-        response.should redirect_to(entry)
+        entry = Entry.create! valid_attributes
+        put :update, {:id => entry.to_param, :entry => valid_attributes}, valid_session
+        response.should redirect_to([:admin, entry])
       end
     end
 
     describe "with invalid params" do
-      it "assigns the admin_entry as @admin_entry" do
-        entry = Admin::Entry.create! valid_attributes
+      it "assigns the entry as @entry" do
+        entry = Entry.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Entry.any_instance.stub(:save).and_return(false)
-        put :update, {:id => entry.to_param, :admin_entry => { "body" => "invalid value" }}, valid_session
-        assigns(:admin_entry).should eq(entry)
+        Entry.any_instance.stub(:save).and_return(false)
+        put :update, {:id => entry.to_param, :entry => { "body" => "invalid value" }}, valid_session
+        assigns(:entry).should eq(entry)
       end
 
       it "re-renders the 'edit' template" do
-        entry = Admin::Entry.create! valid_attributes
+        entry = Entry.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Admin::Entry.any_instance.stub(:save).and_return(false)
-        put :update, {:id => entry.to_param, :admin_entry => { "body" => "invalid value" }}, valid_session
+        Entry.any_instance.stub(:save).and_return(false)
+        put :update, {:id => entry.to_param, :entry => { "body" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested admin_entry" do
-      entry = Admin::Entry.create! valid_attributes
+    it "destroys the requested entry" do
+      entry = Entry.create! valid_attributes
       expect {
         delete :destroy, {:id => entry.to_param}, valid_session
-      }.to change(Admin::Entry, :count).by(-1)
+      }.to change(Entry, :count).by(-1)
     end
 
-    it "redirects to the admin_entries list" do
-      entry = Admin::Entry.create! valid_attributes
+    it "redirects to the entries list" do
+      entry = Entry.create! valid_attributes
       delete :destroy, {:id => entry.to_param}, valid_session
       response.should redirect_to(admin_entries_url)
     end
