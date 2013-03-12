@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :entry do
     body "MyString"
+    tags_with_space "秀吉 半兵卫 三成 信忠"
   end
 end

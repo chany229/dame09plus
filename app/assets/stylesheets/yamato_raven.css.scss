@@ -92,24 +92,24 @@ footer {
 	text-decoration: none;
 }
 #side ul li {
-	background-image: url(/assets/side_btn.png);
-	height: 20px;
-	width: 220px;
-	margin-left: 40px;
-	list-style-type: none;
-	margin:20px -20px 20px 20px;
-	padding: 10px;
-}
-#side ul li {
-	background-image: url(/assets/side_btn.png);
+	/*background-image: url(/assets/side_btn.png);
+	/*opacity:.7;
+	-moz-opacity:.7;/*火狐*/
+	/*filter:alpha(opacity=70); /*IE*/
 	height: 20px;
 	width: 220px;
 	list-style-type: none;
 	margin:20px -20px 20px 20px;
 	padding: 10px;
+	
+background: -moz-linear-gradient(220deg, transparent 20px, rgba(0,0,0,0.7) 20px);
+background: -webkit-linear-gradient(220deg, transparent 20px, rgba(0,0,0,0.7) 20px);
+background: -ms-linear-gradient(220deg, transparent 20px, rgba(0,0,0,0.7) 20px);
+background: -o-linear-gradient(220deg, transparent 20px, rgba(0,0,0,0.7) 20px);
+background: linear-gradient(220deg, transparent 20px, rgba(0,0,0,0.7) 20px); 
 }
 #side ul li.current, #side ul li:hover {
-	margin-left: 40px;
+	border-left: 20px solid #000;
 }
 #face {
 	margin: 19px;
@@ -145,4 +145,7 @@ footer {
   width: 450px;
   padding: 20px;
   margin: 0 0 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
 }

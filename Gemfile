@@ -42,7 +42,11 @@ group :development do
   gem 'quiet_assets'#, "1.0.1"
 end
 
-group :development, :test do
+=begin
+ xxx
+=end 
+
+group :test do
   gem "rspec-rails"
   gem 'database_cleaner'
   gem 'factory_girl'
