@@ -1,5 +1,7 @@
 Dame09plus::Application.routes.draw do
 
+  devise_for :users
+
   get "admin/index"
 
   namespace :admin do

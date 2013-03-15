@@ -82,3 +82,8 @@ gem 'bootstrap_helper'
 gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"#检查查询语句
 
 gem "rails-settings-cached", "0.2.4"
+
+#用户认证
+gem "devise", '2.1.0'
+gem "cancan", '1.6.5'
+gem 'rolify'
