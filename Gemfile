@@ -1,6 +1,6 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'#升级用bundle update rails
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
