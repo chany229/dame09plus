@@ -16,6 +16,8 @@ function doHash(a) {
 		listFn();
 	} else if (action == "#date") {
 		dateFn();
+	} else if (action == "#tag") {
+		tagFn();
 	} else if (h.indexOf("play_video") > -1) {
 		videoFn();
 	} else {
@@ -111,15 +113,15 @@ function dateFn() {
 	setHash(hash);
 }
 
-function videoFn() {
+function tagFn() {
 	var h = location.hash;
-	var id = h.split("video")[1];
+	var tag = h.split("|")[1];
 	$.ajax({
-		url : "/profile2/video/" + id + ".js",
+		url : "/tag/" + tag + ".js",
 		type : "GET",
 		dataType : "script"
 	});
-	setHash("#play_video" + id);
+	setHash("#tag|" + tag);
 }
 
 //setHash("#my_tickets");

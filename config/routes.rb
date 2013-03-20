@@ -8,9 +8,6 @@ Dame09plus::Application.routes.draw do
     resources :articles
     resources :entries
   end
-  
-  match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
-  
   match 'detail(.:format)' => 'public#detail', :as => :detail
   match 'top(.:format)' => 'public#top', :as => :top
   
@@ -20,6 +17,9 @@ Dame09plus::Application.routes.draw do
   match 'date/:year/:month((/p:page).:format)' => 'public#date',:as => :month
   match 'date/:year/:month/:day((/p:page).:format)' => 'public#date',:as => :day
 
+  match 'tag/:tag((/p:page).:format)' => 'public#tag', :as => :tag
+  match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

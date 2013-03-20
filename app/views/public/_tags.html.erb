@@ -1,0 +1,5 @@
+<% tag_cloud(@tags.order("count desc"), []) do |tag, css| %>
+	<span style="font-size: <%= tag.count/10.0 + 1.0 %>em;">
+		<%= link_to tag.name, tag_path(tag.name, 'js'), :remote => true %>(<%= tag.count %>)
+	</span>
+<% end %>

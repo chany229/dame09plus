@@ -58,6 +58,18 @@ class PublicController < ApplicationController
     end
   end
 
+  def tag
+    per_page = AppConfig.entries_perpage
+    @page    = params[:page]||1
+    tag      = params[:tag]
+    @entries = Entry.tagged_with(tag).order("created_at desc").paginate( :page => @page, :per_page => per_page )
+    @hash    = "#tag|#{tag}"
+    @hash   += "|p#{@page}" if params[:page]
+    respond_to do |format|
+      format.js { render 'date.js.erb' }
+    end
+  end
+
   def detail
     respond_to do |format|
       format.html
