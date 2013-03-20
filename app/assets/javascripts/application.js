@@ -15,3 +15,6 @@
 //= require twitter/bootstrap
 //= require hashchange
 //= require_tree .
+
+
+$(".pagination a").attr("data-remote", "true");
