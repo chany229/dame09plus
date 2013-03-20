@@ -1,7 +1,7 @@
 $yellow: #f8b500;
 $pink: #a22041;
 $purple: #460e44;
-$grey: #6e7955;
+$grey: #3f312b;
 $green: #6e7955;
 $block_radius: 5px;
 html {
@@ -41,25 +41,36 @@ table, tr, td{
 }
 table {
 }
-input[type=text],input[type=password],textarea{
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border: 1px solid $yellow;
-    &:focus {
+input[type=text],input[type=password],input[type=email],textarea{
+    width: 120px;
+    height: 24px;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -o-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border: 0px solid $yellow;
+    background-color: rgba(63,49,43,0.5);
+    color: $yellow;
+    margin: 0;
+    padding: 0;
+    &:focus{
       transition: border linear .2s,box-shadow linear .5s;
       -moz-transition: border linear .2s,-moz-box-shadow linear .5s;
       -o-transition: border linear .2s,-moz-box-shadow linear .5s;
       -webkit-transition: border linear .2s,-webkit-box-shadow linear .5s;
       outline: none;
-      border-color: $yellow;
-      box-shadow: 0 0 8px $yellow;
-      -moz-box-shadow: 0 0 8px $yellow;
-      -o-box-shadow: 0 0 8px $yellow;
-      -webkit-box-shadow: 0 0 8px $yellow;
+      border-color: $green;
+      box-shadow: 0 0 12px $green;
+      -moz-box-shadow: 0 0 12px $green;
+      -o-box-shadow: 0 0 12px $green;
+      -webkit-box-shadow: 0 0 12px $green;
     }
 }
+::-webkit-input-placeholder { color: $green; }
+::-moz-placeholder { color: $green; } /* firefox 19+ */
+:-ms-input-placeholder { color: $green; } /* ie */
+input:-moz-placeholder { color: $green; }
+
 header, footer {
 	height: 20px;
 	width: 100%;
@@ -108,7 +119,7 @@ p.notice, p.alert {
 	margin-left: 240px;
 	background-color: $purple;
 	padding-top: 20px;
-	padding-left: 20px;
+	padding-left: 30px;
 	background-image: url(/assets/bg02.png);
 }
 #side ul a {
@@ -153,7 +164,12 @@ p.notice, p.alert {
 }
 #tags {
   margin: 20px;
-  padding: 20px;
+  padding: 5px 0;
+  text-align: center;
+}
+#keyword {
+  margin: 20px;
+  padding: 15px 5px 1px;
   text-align: center;
 }
 #content h1 {
@@ -173,6 +189,18 @@ p.notice, p.alert {
   width: 450px;
   padding: 20px;
   margin: 0 0 20px;
+}
+.btn {
+  background-color: $green;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -o-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border: none;
+  height: 24px;
+  &:hover{
+    color: $grey;
+  }
 }
 .block {
   background: rgba(0,0,0,0.7);
