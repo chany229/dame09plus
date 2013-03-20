@@ -1,5 +1,6 @@
 $("#content").html("<%= escape_javascript render "public/list" %>");
 $("#menu").html("<%= escape_javascript render "public/menu" %>");
 <% if @sethash %>
+console.log("set hash");
 setHash("<%= @hash %>");
 <% end %>

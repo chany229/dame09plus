@@ -1,2 +1,3 @@
 $("#entries").html("<%= escape_javascript render "public/entries" %>");
+$(".pager a").attr("data-remote", "true");
 setHash("<%= @hash %>");

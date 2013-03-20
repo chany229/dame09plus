@@ -1,1 +1,1 @@
-AppConfig.entries_perpage = 10
+AppConfig.entries_perpage = 1

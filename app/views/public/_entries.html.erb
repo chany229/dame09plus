@@ -2,6 +2,7 @@
 <% @entries.each do |entry| %>
 <%= render "public/entry", :entry => entry %>
 <% end %>
+<%= will_paginate @entries %>
 <% else %>
 <hr/>
 <% end %>

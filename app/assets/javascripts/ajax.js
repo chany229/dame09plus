@@ -18,6 +18,8 @@ function doHash(a) {
 		dateFn();
 	} else if (action == "#tag") {
 		tagFn();
+	} else if (action == "#keyword") {
+		keywordFn();
 	} else if (h.indexOf("play_video") > -1) {
 		videoFn();
 	} else {
@@ -54,7 +56,7 @@ function listFn() {
 			type : "GET",
 			dataType : "script"
 		});
-		setHash("list");
+		setHash("#list");
 	}
 }
 
@@ -115,14 +117,55 @@ function dateFn() {
 
 function tagFn() {
 	var h = location.hash;
-	var tag = h.split("|")[1];
+	var params = h.split("|")
+	var tag = params[1];
+	var url, hash;
+	url = "/tag/" + tag + ".js";
+	hash = "#tag|" + tag;
+	if (params.length > 1) {
+		page = params[2].split("p")[1];
+		url = "/tag/" + tag + "/p" + page + ".js";
+		hash = "#tag|" + tag + "|p" + page;
+	}
+	if (!$("#entries")[0]) {
+		$.ajax({
+			url : "list.js?donotsethash=1",
+			type : "GET",
+			dataType : "script"
+		});
+	}
 	$.ajax({
-		url : "/tag/" + tag + ".js",
+		url : url,
 		type : "GET",
 		dataType : "script"
 	});
-	setHash("#tag|" + tag);
+	setHash(hash);
 }
-
+function keywordFn() {
+	var h = location.hash;
+	var params = h.split("|")
+	var keyword = params[1];
+	var url, hash;
+	url = "/keyword/" + keyword + ".js";
+	hash = "#keyword|" + keyword;
+	if (params.length > 2) {
+		page = params[2].split("p")[1];
+		url = "/keyword/" + keyword + "/p" + page + ".js";
+		hash = "#keyword|" + keyword + "|p" + page;
+	}
+	if (!$("#entries")[0]) {
+		$.ajax({
+			url : "list.js?donotsethash=1",
+			type : "GET",
+			dataType : "script"
+		});
+	}
+	$.ajax({
+		url : url,
+		type : "GET",
+		dataType : "script"
+	});
+	setHash(hash);
+}
 //setHash("#my_tickets");
 doHash(1);

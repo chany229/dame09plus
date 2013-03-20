@@ -17,8 +17,9 @@ Dame09plus::Application.routes.draw do
   match 'date/:year/:month((/p:page).:format)' => 'public#date',:as => :month
   match 'date/:year/:month/:day((/p:page).:format)' => 'public#date',:as => :day
 
-  match 'tag/:tag((/p:page).:format)' => 'public#tag', :as => :tag
   match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
+  match 'tag/:tag((/p:page).:format)' => 'public#tag', :as => :tag
+  match 'keyword(/:keyword)((/p:page).:format)' => 'public#keyword', :as => :keyword
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

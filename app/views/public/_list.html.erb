@@ -5,6 +5,12 @@
 	<div id="calendar" class="block">
 		<%= render "public/calendar", :datetime => @date %>
 	</div>
+	<div id="keyword" class="block">
+		<%= form_tag '/keyword', :method => 'get', :remote => 'true' do %>
+			<%= text_field_tag 'keyword' %>
+			<input type="submit" value="搜索" class="btn" />
+		<% end %>
+	</div>
 	<div id="tags" class="block">
 		<%= render "public/tags"%>
 	</div>

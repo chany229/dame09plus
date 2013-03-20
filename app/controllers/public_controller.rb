@@ -54,7 +54,7 @@ class PublicController < ApplicationController
     end
     @entries = Entry.where(conditions).order('created_at desc').paginate(:page => @page, :per_page => per_page)
     respond_to do |format|
-      format.js
+      format.js { render 'search.js.erb' }
     end
   end
 
@@ -62,11 +62,23 @@ class PublicController < ApplicationController
     per_page = AppConfig.entries_perpage
     @page    = params[:page]||1
     tag      = params[:tag]
-    @entries = Entry.tagged_with(tag).order("created_at desc").paginate( :page => @page, :per_page => per_page )
+    @entries = Entry.tagged_with(tag).order("created_at desc").paginate(:page => @page, :per_page => per_page)
     @hash    = "#tag|#{tag}"
     @hash   += "|p#{@page}" if params[:page]
     respond_to do |format|
-      format.js { render 'date.js.erb' }
+      format.js { render 'search.js.erb' }
+    end
+  end
+
+  def keyword
+    per_page = AppConfig.entries_perpage
+    @page    = params[:page]||1
+    keyword  = params[:keyword]
+    @entries = Entry.where(["body like ?", "%#{keyword}%"]).order("created_at desc").paginate(:page => @page, :per_page => per_page)
+    @hash    = "#keyword|#{keyword}"
+    @hash   += "|p#{@page}" if params[:page]
+    respond_to do |format|
+      format.js { render 'search.js.erb' }
     end
   end
 
