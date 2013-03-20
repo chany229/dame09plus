@@ -2,7 +2,7 @@ Dame09plus::Application.routes.draw do
 
   devise_for :users
 
-  get "admin/index"
+  get "admin/index", :as => :admin
 
   namespace :admin do
     resources :articles

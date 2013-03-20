@@ -1,4 +1,5 @@
 class Admin::ArticlesController < ApplicationController
+  before_filter :should_be_admin
   layout "admin"
   # GET /articles
   # GET /articles.json

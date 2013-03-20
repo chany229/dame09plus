@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 class Comment < ActiveRecord::Base
-
+  resourcify
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true

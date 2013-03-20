@@ -1,4 +1,5 @@
 class Admin::EntriesController < ApplicationController
+  before_filter :should_be_admin
   layout "admin"
   # GET /entries
   # GET /entries.json

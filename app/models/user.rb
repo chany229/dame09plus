@@ -1,4 +1,7 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
+  resourcify
+  rolify #resourcify必须在rolify之前
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

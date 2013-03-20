@@ -12,7 +12,7 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "bootstrap_and_overrides", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -49,7 +49,7 @@
             <ul class="nav">
               <li><%= link_to "管理", admin_entries_path %></li>
               <li><%= link_to "统计", admin_articles_path %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "返回", top_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
