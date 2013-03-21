@@ -4,12 +4,14 @@ $purple: #460e44;
 $grey: #3f312b;
 $green: #6e7955;
 $block_radius: 5px;
+* {
+  margin: 0;
+  padding: 0;
+}
 html {
 	width: 100%;
 }
 body {
-	margin: 0;
-	padding: 0;
 	width: 100%;
 	color: $yellow;
 	background-color: #000;
@@ -25,10 +27,6 @@ a{
   &:active{
     color: $yellow;
   }
-}
-div,ul,li {
-	margin:0;
-	padding:0;
 }
 span {display: inline-block;}
 hr {
@@ -72,12 +70,12 @@ input[type=text],input[type=password],input[type=email],textarea{
 input:-moz-placeholder { color: $green; }
 
 header, footer {
-	height: 20px;
 	width: 100%;
 	background-color: #000;
 	clear: both;
 }
 header {
+  height: 40px;
 }
 footer {
 	text-align:center;
@@ -102,17 +100,17 @@ p.notice, p.alert {
 }
 #container {
 	width: 100%;
-	overflow:hidden;
+	overflow: hidden;
 }
 #side, #content {
-	margin-bottom:-9999px;
-	padding-bottom:9999px;
-	min-height: 600px;
+	margin-bottom: -9999px;
+	padding-bottom: 9999px;
+  min-height: 600px;
 }
 #side {
 	width: 240px;
 	background-color: $pink;
-	float:left;
+	float: left;
 	background-image: url(/assets/bg01.png);
 }
 #content {
@@ -164,12 +162,12 @@ p.notice, p.alert {
 }
 #tags {
   margin: 20px;
-  padding: 5px 0;
+  padding: 15px 0;
   text-align: center;
 }
 #keyword {
   margin: 20px;
-  padding: 15px 5px 1px;
+  padding: 15px 5px;
   text-align: center;
 }
 #content h1 {
@@ -178,7 +176,7 @@ p.notice, p.alert {
 #canvas_body {
 	margin: 40px;
 }
-#entries {
+#list {
   float: left;
 }
 #filters {
@@ -198,6 +196,7 @@ p.notice, p.alert {
   -webkit-border-radius: 12px;
   border: none;
   height: 24px;
+  width: 40px;
   &:hover{
     color: $grey;
   }

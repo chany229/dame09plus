@@ -2,7 +2,7 @@ Dame09plus::Application.routes.draw do
 
   devise_for :users
 
-  get "admin/index", :as => :admin
+  get "admin" => "admin#index", :as => :admin
   post "admin/setting", :as => :setting
 
   namespace :admin do

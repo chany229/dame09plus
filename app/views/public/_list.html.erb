@@ -1,5 +1,10 @@
-<div id="entries">
-	<%= render "entries" %>
+<div id="list">
+	<div class="entry block" id="entry_0">
+		<%= AppConfig.notice %>
+	</div>
+	<div id="entries">
+		<%= render "entries" %>
+	</div>
 </div>
 <div id="filters">
 	<div id="calendar" class="block">
@@ -15,3 +20,4 @@
 		<%= render "public/tags"%>
 	</div>
 </div>
+<div style="clear:both;">

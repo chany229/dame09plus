@@ -1,5 +1,6 @@
 <h1>系统设定</h1>
 <%= form_tag setting_path do %>
 <%= number_field_tag :entries_perpage, AppConfig.entries_perpage %>
+<%= text_area_tag :notice, AppConfig.notice %>
 <%= submit_tag %>
 <% end %>
