@@ -79,7 +79,7 @@ gem 'bootstrap_helper'
 #gem 'therubyracer-heroku', :platform => :ruby
 
 
-gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"#检查查询语句
+#gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"#检查查询语句
 
 gem "rails-settings-cached", "0.2.4"
 

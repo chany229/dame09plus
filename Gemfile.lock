@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/nesquena/query_reviewer.git
-  revision: 6d6a00ed72a37f40adb34bdaf6012f792cf3348e
-  specs:
-    query_reviewer (0.1.8)
-
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -201,7 +195,6 @@ DEPENDENCIES
   factory_girl_rails
   galetahub-simple_captcha
   jquery-rails
-  query_reviewer!
   quiet_assets
   rails (= 3.2.13)
   rails-settings-cached (= 0.2.4)
