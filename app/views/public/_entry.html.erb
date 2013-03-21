@@ -1,3 +1,6 @@
 <div class="entry block" id="entry_<%= entry.id %>">
 	<%= entry.body %>
+	<% if entry.article %>
+	<%= simple_format entry.article.body %>
+	<% end %>
 </div>

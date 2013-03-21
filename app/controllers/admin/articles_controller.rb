@@ -37,6 +37,8 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    @article.entry_body = @article.entry.body
+    @article.tags = @article.entry.tag_list.split(",").join(' ')
   end
 
   # POST /articles
