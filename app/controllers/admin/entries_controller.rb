@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::EntriesController < ApplicationController
   before_filter :should_be_admin
   layout "admin"

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PublicController < ApplicationController
   layout "yamato_raven"
   def index
