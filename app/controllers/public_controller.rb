@@ -59,6 +59,11 @@ class PublicController < ApplicationController
     end
     @entries = Entry.where(conditions).order('created_at desc').paginate(:page => @page, :per_page => per_page)
     respond_to do |format|
+      format.html {
+        @date = Time.new(@year, @month, @day)
+        @tags = Entry.tag_counts_on(:tags).order('count desc')
+        render :action => :list
+      }
       format.js { render 'search.js.erb' }
     end
   end
@@ -72,6 +77,11 @@ class PublicController < ApplicationController
     @hash   += "|p#{@page}" if params[:page]
     @filter = "标签[#{tag}]"
     respond_to do |format|
+      format.html {
+        @date = Time.now
+        @tags = Entry.tag_counts_on(:tags).order('count desc')
+        render :action => :list
+      }
       format.js { render 'search.js.erb' }
     end
   end
@@ -85,6 +95,11 @@ class PublicController < ApplicationController
     @hash   += "|p#{@page}" if params[:page]
     @filter = "#关键词[#{keyword}]"
     respond_to do |format|
+      format.html {
+        @date = Time.new(@year, @month, @day)
+        @tags = Entry.tag_counts_on(:tags).order('count desc')
+        render :action => :list
+      }
       format.js { render 'search.js.erb' }
     end
   end
