@@ -93,7 +93,7 @@ class PublicController < ApplicationController
     @entries = Entry.where(["body like ?", "%#{keyword}%"]).order("created_at desc").paginate(:page => @page, :per_page => per_page)
     @hash    = "#keyword|#{keyword}"
     @hash   += "|p#{@page}" if params[:page]
-    @filter = "#关键词[#{keyword}]"
+    @filter = "关键词[#{keyword}]"
     respond_to do |format|
       format.html {
         @date = Time.new(@year, @month, @day)
