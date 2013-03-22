@@ -3,7 +3,10 @@
 
 FactoryGirl.define do
   factory :entry do
-    body "MyString"
-    tags_with_space "秀吉 半兵卫 三成 信忠"
+    body "1059"
+  end
+  
+  factory :naruto_entry, :parent => :entry do
+    body "naruto"
   end
 end
