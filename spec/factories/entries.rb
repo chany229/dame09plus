@@ -9,4 +9,8 @@ FactoryGirl.define do
   factory :naruto_entry, :parent => :entry do
     body "naruto"
   end
+  
+  factory :hiyori_entry, class: Entry do
+    tags_with_space "  奥之细道,, 飞鸟  天国,"
+  end
 end

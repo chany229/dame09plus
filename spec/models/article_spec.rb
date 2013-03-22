@@ -17,6 +17,6 @@ describe Article do
       article.entry.tags.map(&:name).join(' ').should == "路飞 卓洛 奈美 乌索普 山治 乔巴 罗宾 弗兰奇 布鲁克"
     end
     
-    pending "return op article success #{__FILE__}"
+    pending "正确返回海贼王长文信息 #{__FILE__}"
   end
 end
