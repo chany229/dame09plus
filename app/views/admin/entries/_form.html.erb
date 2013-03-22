@@ -12,10 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :body %><br />
+    内容<br/>
     <%= f.text_field :body %>
   </div>
-  <%= f.text_field :tags_with_space %>
+  <div class="field">
+  	标签（用空格或“,”分隔多个标签）<br/>
+    <%= f.text_field :tags_with_space %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

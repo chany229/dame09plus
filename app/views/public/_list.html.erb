@@ -1,10 +1,8 @@
-<div id="list">
-	<div class="entry block" id="entry_0">
-		<%= AppConfig.notice %>
-	</div>
-	<div id="entries">
-		<%= render "entries" %>
-	</div>
+<div class="entry block" id="notice">
+<%= AppConfig.notice %>
+</div>
+<div id="entries">
+	<%= render "entries" %>
 </div>
 <div id="filters">
 	<div id="calendar" class="block">
@@ -17,7 +15,11 @@
 		<% end %>
 	</div>
 	<div id="tags" class="block">
-		<%= render "public/tags"%>
+		<% tag_cloud(@tags.order("count desc"), []) do |tag, css| %>
+			<span style="font-size: <%= tag.count/10.0 + 1.0 %>em;">
+				<%= link_to tag.name, tag_path(tag.name), :remote => true %>(<%= tag.count %>)
+			</span>
+		<% end %>
 	</div>
 </div>
 <div style="clear:both;">

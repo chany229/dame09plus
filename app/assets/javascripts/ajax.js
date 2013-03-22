@@ -45,14 +45,14 @@ function listFn() {
 	if (params.length > 1) {
 		var page = params[1].split("p")[1];
 		$.ajax({
-			url : "list/p" + page + ".js",
+			url : "/list/p" + page + ".js",
 			type : "GET",
 			dataType : "script"
 		});
 		setHash("list|p" + page);
 	} else {
 		$.ajax({
-			url : "list.js",
+			url : "/list.js",
 			type : "GET",
 			dataType : "script"
 		});
@@ -102,7 +102,7 @@ function dateFn() {
 	}
 	if (!$("#entries")[0]) {
 		$.ajax({
-			url : "list.js?donotsethash=1",
+			url : "/list.js?donotsethash=1",
 			type : "GET",
 			dataType : "script"
 		});
@@ -122,7 +122,7 @@ function tagFn() {
 	var url, hash;
 	url = "/tag/" + tag + ".js";
 	hash = "#tag|" + tag;
-	if (params.length > 1) {
+	if (params.length > 2) {
 		page = params[2].split("p")[1];
 		url = "/tag/" + tag + "/p" + page + ".js";
 		hash = "#tag|" + tag + "|p" + page;

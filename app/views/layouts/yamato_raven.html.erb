@@ -12,6 +12,9 @@
     	<div id="login_link">
     		<% if current_user %>
     		<%= current_user.username %>
+    		<% if current_user.has_role?("admin") %>
+    		<%= link_to '管理界面', admin_path %>
+    		<% end %>
     		<%= link_to '注销', destroy_session_path(:user), :method => :delete %>
     		<% else %>
     		<%= link_to '登录', new_session_path(:user) %>

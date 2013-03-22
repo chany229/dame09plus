@@ -73,6 +73,7 @@ header, footer {
 	width: 100%;
 	background-color: #000;
 	clear: both;
+	display: block;
 }
 header {
   height: 20px;
@@ -106,6 +107,7 @@ p.notice, p.alert {
 	margin-bottom: -9999px;
 	padding-bottom: 9999px;
   min-height: 600px;
+  padding-top: 20px;
 }
 #side {
 	width: 240px;
@@ -116,7 +118,6 @@ p.notice, p.alert {
 #content {
 	margin-left: 240px;
 	background-color: $purple;
-	padding-top: 20px;
 	padding-left: 30px;
 	background-image: url(/assets/bg02.png);
 }
@@ -149,8 +150,11 @@ p.notice, p.alert {
   background: linear-gradient(left, #000, rgba(0,0,0,0.7)); 
 }
 #face {
-	margin: 19px;
+	margin: 0 19px 19px;
 	border: 1px solid $yellow;
+}
+#notice {
+  width: 670px;
 }
 #calendar {
   margin: 0 20px;
@@ -176,7 +180,7 @@ p.notice, p.alert {
 #canvas_body {
 	margin: 40px;
 }
-#list {
+#entries {
   float: left;
 }
 #filters {

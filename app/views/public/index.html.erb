@@ -42,7 +42,12 @@
             	font-weight: bolder;
             	padding-top: 12px;
 			}
+			#links {
+				font-size: 10px;
+            	padding-top: 20px;
+			}
 		</style>
+    	<%= javascript_include_tag "application" %>
 	</head>
 	<body>
 		<div id="main">
@@ -58,6 +63,18 @@
 				<div id="notice">
 					本站内容与原作者、制作公司、历史人物等无关，特此声明
 				</div>
+				<div id="links">
+					<% if current_user %>
+			    		<%= current_user.username %>
+			    		<% if current_user.has_role?("admin") %>
+			    			<%= link_to '管理界面', admin_path %>
+			    		<% end %>
+			    		<%= link_to '注销', destroy_session_path(:user), :method => :delete %>
+		    		<% else %>
+			    		<%= link_to '登录', new_session_path(:user) %>
+			    		<%= link_to '注册', new_registration_path(:user) %>
+		    		<% end %>
+	    		</div>
 			</div>
 		</div>
 	</body>

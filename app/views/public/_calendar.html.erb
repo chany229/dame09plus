@@ -1,20 +1,20 @@
 <table style="width: 200px;text-align: center;">
   <tr>
     <td>
-      <%= link_to '<<', calendar_path(datetime.prev_month.to_i,"js"), :remote => true %>
+      <%= link_to '<<', calendar_path(datetime.prev_month.to_i), :remote => true %>
     </td>
     <td>
       <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
           Time.new(datetime.year,1,1).beginning_of_year,
           Time.new(datetime.year,1,1).end_of_year]).empty?, "#{datetime.year}年",
-          year_path(datetime.year, "js"), :remote => true %>
+          year_path(datetime.year), :remote => true %>
       <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
           Time.new(datetime.year,datetime.month,1).beginning_of_month,
           Time.new(datetime.year,datetime.month,1).end_of_month]).empty?, "#{datetime.month}月",
-          month_path(datetime.year,datetime.month, "js"), :remote => true %>
+          month_path(datetime.year,datetime.month), :remote => true %>
     </td>
     <td>
-      <%= link_to '>>', calendar_path(datetime.next_month.to_i,"js"), :remote => true %>
+      <%= link_to '>>', calendar_path(datetime.next_month.to_i), :remote => true %>
     </td>
   </tr>
 </table>
@@ -46,7 +46,7 @@
         <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
             Time.new(datetime.year,datetime.month,date).beginning_of_day,
             Time.new(datetime.year,datetime.month,date).end_of_day]).empty?,
-          date, day_path(datetime.year,datetime.month,date,"js"), :remote => true %>
+          date, day_path(datetime.year,datetime.month,date), :remote => true %>
       </td>
       <% if Time.new(datetime.year,datetime.month,date).wday == 6%>
       </tr>

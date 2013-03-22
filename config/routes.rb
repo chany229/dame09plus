@@ -12,14 +12,14 @@ Dame09plus::Application.routes.draw do
   match 'detail(.:format)' => 'public#detail', :as => :detail
   match 'top(.:format)' => 'public#top', :as => :top
   
-  match 'list((/p:page).:format)' => 'public#list', :as => :list
+  match 'list(/p:page)(.:format)' => 'public#list', :as => :list
   
-  match 'date/:year((/p:page).:format)' => 'public#date',:as => :year
-  match 'date/:year/:month((/p:page).:format)' => 'public#date',:as => :month
-  match 'date/:year/:month/:day((/p:page).:format)' => 'public#date',:as => :day
+  match 'date/:year(/p:page)(.:format)' => 'public#date',:as => :year
+  match 'date/:year/:month(/p:page)(.:format)' => 'public#date',:as => :month
+  match 'date/:year/:month/:day(/p:page)(.:format)' => 'public#date',:as => :day
 
   match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
-  match 'tag/:tag((/p:page).:format)' => 'public#tag', :as => :tag
+  match 'tag/:tag(/p:page)(.:format)' => 'public#tag', :as => :tag
   match 'keyword(/:keyword)((/p:page).:format)' => 'public#keyword', :as => :keyword
   
   # The priority is based upon order of creation:

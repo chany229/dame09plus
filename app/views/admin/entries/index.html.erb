@@ -11,13 +11,13 @@
 <% @entries.each do |entry| %>
   <tr>
     <td><%= entry.body %></td>
-    <td><%= link_to 'Show', [:admin, entry] %></td>
-    <td><%= link_to 'Edit', edit_admin_entry_path(entry) %></td>
-    <td><%= link_to 'Destroy', [:admin, entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t('show'), [:admin, entry] %></td>
+    <td><%= link_to t('edit'), edit_admin_entry_path(entry) %></td>
+    <td><%= link_to t('destroy'), [:admin, entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Entry', new_admin_entry_path %>
+<%= link_to "#{t "new"}#{t "entry"}", new_admin_entry_path %>
