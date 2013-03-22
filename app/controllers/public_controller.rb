@@ -25,6 +25,7 @@ class PublicController < ApplicationController
     @hash = "#list"
     @hash += "|p#{@page}" if params[:page]
     @sethash = true unless params[:donotsethash]
+    @filter = "全部"
     respond_to do |format|
       format.js
       format.html
@@ -43,12 +44,15 @@ class PublicController < ApplicationController
     if params[:day]
       conditions = ["created_at > ? and created_at < ?", Time.new(@year,@month,@day).beginning_of_day, Time.new(@year,@month,@day).end_of_day]
       @hash += "|y#{@year}|m#{@month}|d#{@day}"
+      @filter = "#{@year}年#{@month}月#{@day}日"
     elsif params[:month]
       conditions = ["created_at > ? and created_at < ?", Time.new(@year,@month,1).beginning_of_month, Time.new(@year,@month,1).end_of_month]
       @hash += "|y#{@year}|m#{@month}"
+      @filter = "#{@year}年#{@month}月#"
     elsif params[:year]
       conditions = ["created_at > ? and created_at < ?", Time.new(@year,1,1).beginning_of_year, Time.new(@year,1,1).end_of_year]
       @hash += "|y#{@year}"
+      @filter = "#{@year}年"
     end
     if params[:page]
       @hash += "|p#{@page}"
@@ -66,6 +70,7 @@ class PublicController < ApplicationController
     @entries = Entry.tagged_with(tag).order("created_at desc").paginate(:page => @page, :per_page => per_page)
     @hash    = "#tag|#{tag}"
     @hash   += "|p#{@page}" if params[:page]
+    @filter = "标签：#{link_to tag, tag_path(tag)}"
     respond_to do |format|
       format.js { render 'search.js.erb' }
     end
@@ -78,6 +83,7 @@ class PublicController < ApplicationController
     @entries = Entry.where(["body like ?", "%#{keyword}%"]).order("created_at desc").paginate(:page => @page, :per_page => per_page)
     @hash    = "#keyword|#{keyword}"
     @hash   += "|p#{@page}" if params[:page]
+    @filter = "#关键词：{keyword}"
     respond_to do |format|
       format.js { render 'search.js.erb' }
     end

@@ -2,6 +2,8 @@
 <% @entries.each do |entry| %>
 <%= render "public/entry", :entry => entry %>
 <% end %>
+过滤条件：<%= raw @filter %>
+共有<%= @entries.total_entries %>条日志
 <%= will_paginate @entries, :renderer => PaginateLinkRenderer %>
 <% else %>
 <div class="block" id="not_found">
