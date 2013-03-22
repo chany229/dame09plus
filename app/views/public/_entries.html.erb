@@ -1,12 +1,15 @@
 <% if @entries.count > 0 %>
-<% @entries.each do |entry| %>
-<%= render "public/entry", :entry => entry %>
-<% end %>
-过滤条件：<%= raw @filter %>
-共有<%= @entries.total_entries %>条日志
-<%= will_paginate @entries, :renderer => PaginateLinkRenderer %>
+	<% @entries.each do |entry| %>
+		<%= render "public/entry", :entry => entry %>
+	<% end %>
+	<div id="logs_info">
+		<div id="filter_info">过滤条件:<%= @filter %></div>
+		<div id="total_info">共有<%= @entries.total_entries %>条日志</div>
+		<%= will_paginate @entries, :renderer => PaginateLinkRenderer %>
+		<div class="clear"></div>
+	</div>
 <% else %>
-<div class="block" id="not_found">
-	未找到符合条件的结果
-</div>
+	<div class="block" id="not_found">
+		未找到符合条件的结果
+	</div>
 <% end %>

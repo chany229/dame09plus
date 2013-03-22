@@ -228,6 +228,16 @@ p.notice, p.alert {
   font-size: 10px;
   padding: 10px 0;
 }
+#logs_info {
+  font-size: 14px;
+}
+#filter_info, #total_info {
+  float: left;
+  margin-right:12px;
+}
+#pagination {
+  float: right;
+}
 /*content*/
 
 
