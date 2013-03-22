@@ -1,6 +1,24 @@
 <div class="entry block" id="entry_<%= entry.id %>">
 	<%= entry.body %>
+	<div class="entry_links">
+		<% if entry.article %>
+			<div class="left">
+				<%= link_to "显示全文", "javascript:void(0);", :onclick => "$('#article_of_e#{entry.id}').toggle();" %>
+			</div>
+		<% end %>
+		<div class="right">
+			<% entry.tags.each do |tag| %>
+				<%= link_to tag.name, tag_path(tag.name) %> 
+			<% end %> |
+			<%= entry.created_at.to_s %> |
+			<%= link_to "comments(#{entry.comments.count})", "javascript:void(0);"%>
+		</div>
+		<div class="clear"></div>
+	</div>
 	<% if entry.article %>
-	<%= simple_format entry.article.body %>
+		<hr/>
+		<div id="article_of_e<%= entry.id %>" class="article">
+			<%= simple_format entry.article.body %>
+		</div>
 	<% end %>
 </div>

@@ -4,5 +4,7 @@
 <% end %>
 <%= will_paginate @entries, :renderer => PaginateLinkRenderer %>
 <% else %>
-<hr/>
+<div class="block" id="not_found">
+	未找到符合条件的结果
+</div>
 <% end %>

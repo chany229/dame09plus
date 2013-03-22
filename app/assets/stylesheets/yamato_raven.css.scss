@@ -68,12 +68,16 @@ input[type=text],input[type=password],input[type=email],textarea{
 ::-moz-placeholder { color: $green; } /* firefox 19+ */
 :-ms-input-placeholder { color: $green; } /* ie */
 input:-moz-placeholder { color: $green; }
+/*body*/
 
+
+/*header&footer*/
 header, footer {
 	width: 100%;
 	background-color: #000;
 	clear: both;
 	display: block;
+	vertical-align: bottom;
 }
 header {
   height: 20px;
@@ -99,6 +103,10 @@ p.notice, p.alert {
   float: right;
   font-size: 12px;
 }
+/*header&footer*/
+
+
+/*container*/
 #container {
 	width: 100%;
 	overflow: hidden;
@@ -118,9 +126,13 @@ p.notice, p.alert {
 #content {
 	margin-left: 240px;
 	background-color: $purple;
-	padding-left: 30px;
+	padding-left: 20px;
 	background-image: url(/assets/bg02.png);
 }
+/*container*/
+
+
+/*side*/
 #side ul a {
 	color: $yellow;
 	text-decoration: none;
@@ -131,30 +143,44 @@ p.notice, p.alert {
 	-moz-opacity:.7;/*火狐*/
 	/*filter:alpha(opacity=70); /*IE*/
 	height: 20px;
-	width: 220px;
+	width: 200px;
 	list-style-type: none;
 	margin:20px -20px 20px 20px;
 	padding: 10px;
-	background-color: rgba(0,0,0,0.7);
-	border-radius: 0px 20px 20px 0px;
-  -moz-border-radius: 0px 20px 20px 0px;
-  -webkit-border-radius: 0px 20px 20px 0px;
-  -ms-border-radius: 0px 20px 20px 0px;
-  -o-border-radius: 0px 20px 20px 0px;
-}
-#side ul li.current, #side ul li:hover {
   background: -moz-linear-gradient(left, #000, rgba(0,0,0,0.7));
   background: -webkit-linear-gradient(left, #000, rgba(0,0,0,0.7));
   background: -ms-linear-gradient(left, #000, rgba(0,0,0,0.7));
   background: -o-linear-gradient(left, #000, rgba(0,0,0,0.7));
   background: linear-gradient(left, #000, rgba(0,0,0,0.7)); 
+/*	border-radius: 0px 20px 20px 0px;
+  -moz-border-radius: 0px 20px 20px 0px;
+  -webkit-border-radius: 0px 20px 20px 0px;
+  -ms-border-radius: 0px 20px 20px 0px;
+  -o-border-radius: 0px 20px 20px 0px;*/
+}
+#side ul li.current, #side ul li:hover {
+  background: -moz-linear-gradient(left, #000, rgba(0,0,0,0));
+  background: -webkit-linear-gradient(left, #000, rgba(0,0,0,0));
+  background: -ms-linear-gradient(left, #000, rgba(0,0,0,0));
+  background: -o-linear-gradient(left, #000, rgba(0,0,0,0));
+  background: linear-gradient(left, #000, rgba(0,0,0,0)); 
 }
 #face {
 	margin: 0 19px 19px;
 	border: 1px solid $yellow;
 }
+/*side*/
+
+
+/*content*/
 #notice {
   width: 670px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+#filters {
+  float: left;
+  width: 240px;
 }
 #calendar {
   margin: 0 20px;
@@ -183,15 +209,29 @@ p.notice, p.alert {
 #entries {
   float: left;
 }
-#filters {
-  float: left;
-  width: 240px;
+#not_found {
+  padding: 200px 20px;
+  color: $pink;
+  text-align: center;
+  width: 450px;
 }
 .entry {
   width: 450px;
-  padding: 20px;
+  padding: 20px 20px 0;
   margin: 0 0 20px;
 }
+.article {
+  padding: 0 0 20px;
+  display: none;
+}
+.entry_links {
+  font-size: 10px;
+  padding: 10px 0;
+}
+/*content*/
+
+
+/*classes*/
 .btn {
   background-color: $green;
   border-radius: 12px;
@@ -234,3 +274,13 @@ p.notice, p.alert {
   background: -o-linear-gradient(top, #000, rgba(0,0,0,0.7));
   background: linear-gradient(top, #000, rgba(0,0,0,0.7));
 }
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+/*classes*/
