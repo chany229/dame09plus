@@ -54,8 +54,8 @@ group :test do
   gem 'capybara', '1.1.2'
 end
 
-gem 'therubyracer'
-gem 'execjs'
+#gem 'therubyracer'
+#gem 'execjs'
 
 #用户认证
 #gem "devise", '2.1.0'
