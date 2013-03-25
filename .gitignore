@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# 60
+/db/schema.rb
+/Gemfile.lock
