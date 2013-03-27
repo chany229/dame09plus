@@ -10,19 +10,22 @@ class PublicController < ApplicationController
   end
   
   def top
+    if params[:type]
+      session[:format] = params[:type]
+    end
     respond_to do |format|
       format.html
       format.js
     end
   end
 
-  def list
+  def log
     per_page = AppConfig.entries_perpage
     @page    = params[:page]||1
     @date = Time.now
     @tags = Entry.tag_counts_on(:tags).order('count desc')
     @entries = Entry.order('created_at desc').paginate(:page => @page, :per_page => per_page)
-    @hash = "#list"
+    @hash = "#log"
     @hash += "|p#{@page}" if params[:page]
     @sethash = true unless params[:donotsethash]
     @filter = "全部"
@@ -62,7 +65,7 @@ class PublicController < ApplicationController
       format.html {
         @date = Time.new(@year, @month, @day)
         @tags = Entry.tag_counts_on(:tags).order('count desc')
-        render :action => :list
+        render :action => :log
       }
       format.js { render 'search.js.erb' }
     end
@@ -80,7 +83,7 @@ class PublicController < ApplicationController
       format.html {
         @date = Time.now
         @tags = Entry.tag_counts_on(:tags).order('count desc')
-        render :action => :list
+        render :action => :log
       }
       format.js { render 'search.js.erb' }
     end
@@ -98,7 +101,7 @@ class PublicController < ApplicationController
       format.html {
         @date = Time.new(@year, @month, @day)
         @tags = Entry.tag_counts_on(:tags).order('count desc')
-        render :action => :list
+        render :action => :log
       }
       format.js { render 'search.js.erb' }
     end
@@ -109,6 +112,15 @@ class PublicController < ApplicationController
       format.html
       format.js
     end
+  end
+  
+  def change_format
+    if session[:format] == 'js'
+      session[:format] = 'html'
+    else
+      session[:format] = 'js'
+    end
+    redirect_to :back
   end
   
   def calendar

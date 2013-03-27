@@ -10,9 +10,9 @@ describe PublicController do
     end
   end
 
-  describe "GET 'list'" do
+  describe "GET 'log'" do
     it "returns http success" do
-      get 'list'
+      get 'log'
       response.should be_success
     end
   end

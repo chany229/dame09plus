@@ -9,7 +9,7 @@
 		<%= render "public/calendar", :datetime => @date %>
 	</div>
 	<div id="keyword" class="block">
-		<%= form_tag '/keyword', :method => 'get', :remote => 'true' do %>
+		<%= form_tag '/keyword', :method => 'get', :remote => remote? do %>
 			<%= text_field_tag 'keyword', params[:keyword] || '', :id => "" %>
 			<input type="submit" value="搜索" class="btn" />
 		<% end %>
@@ -17,7 +17,7 @@
 	<div id="tags" class="block">
 		<% tag_cloud(@tags.order("count desc"), []) do |tag, css| %>
 			<span style="font-size: <%= tag.count/10.0 + 1.0 %>em;">
-				<%= link_to tag.name, tag_path(tag.name), :remote => true %>(<%= tag.count %>)
+				<%= link_to tag.name, tag_path(tag.name), :remote => remote? %>(<%= tag.count %>)
 			</span>
 		<% end %>
 	</div>

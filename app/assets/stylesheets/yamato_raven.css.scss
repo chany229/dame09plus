@@ -7,6 +7,12 @@ $block_radius: 5px;
 * {
   margin: 0;
   padding: 0;
+  &:hover {
+    -o-transition: color .50s linear, background-color .50s linear, border-color .50s linear;
+    -webkit-transition: color .50s linear, background-color .50s linear, border-color .50s linear;
+    -moz-transition: color .50s linear, background-color .50s linear, border-color .50s linear;
+    transition: color .50s linear, background-color .50s linear, border-color .50s linear;
+  }
 }
 html {
 	width: 100%;
@@ -16,6 +22,10 @@ body {
 	color: $yellow;
 	background-color: #000;
 }
+/*::-moz-selection, ::selection {
+  background: $pink;
+  color: #000;
+}*/
 a{
   color: $yellow;
   &:visited{
@@ -110,6 +120,7 @@ p.notice, p.alert {
 #container {
 	width: 100%;
 	overflow: hidden;
+  min-width: 1000px;
 }
 #side, #content {
 	margin-bottom: -9999px;
@@ -170,7 +181,7 @@ p.notice, p.alert {
 	border: 1px solid $yellow;
 }
 #music_player {
-  margin: 20px;
+  margin: 40px 20px 20px;
 }
 /*side*/
 
@@ -281,11 +292,11 @@ p.notice, p.alert {
   }
 }
 .block:hover {
-  background: -moz-linear-gradient(top, #000, rgba(0,0,0,0.7));
-  background: -webkit-linear-gradient(top, #000, rgba(0,0,0,0.7));
-  background: -ms-linear-gradient(top, #000, rgba(0,0,0,0.7));
-  background: -o-linear-gradient(top, #000, rgba(0,0,0,0.7));
-  background: linear-gradient(top, #000, rgba(0,0,0,0.7));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
+  background: -ms-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
+  background: -o-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
+  background: linear-gradient(bottom, rgba(0,0,0,0.7), #000 );
 }
 .left {
   float: left;

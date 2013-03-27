@@ -12,8 +12,8 @@ function doHash(a) {
 	var action = h.split("|")[0];
 	if (h == "") {
 		//setHash("#top");
-	} else if (action == "#list") {
-		listFn();
+	} else if (action == "#log") {
+		logFn();
 	} else if (action == "#date") {
 		dateFn();
 	} else if (action == "#tag") {
@@ -39,24 +39,24 @@ function defaultFn(a) {
 	setHash(a);
 }
 
-function listFn() {
+function logFn() {
 	var h = location.hash;
 	var params = h.split("|");
 	if (params.length > 1) {
 		var page = params[1].split("p")[1];
 		$.ajax({
-			url : "/list/p" + page + ".js",
+			url : "/log/p" + page + ".js",
 			type : "GET",
 			dataType : "script"
 		});
-		setHash("list|p" + page);
+		setHash("log|p" + page);
 	} else {
 		$.ajax({
-			url : "/list.js",
+			url : "/log.js",
 			type : "GET",
 			dataType : "script"
 		});
-		setHash("#list");
+		setHash("#log");
 	}
 }
 
@@ -102,7 +102,7 @@ function dateFn() {
 	}
 	if (!$("#entries")[0]) {
 		$.ajax({
-			url : "/list.js?donotsethash=1",
+			url : "/log.js?donotsethash=1",
 			type : "GET",
 			dataType : "script"
 		});
@@ -129,7 +129,7 @@ function tagFn() {
 	}
 	if (!$("#entries")[0]) {
 		$.ajax({
-			url : "list.js?donotsethash=1",
+			url : "log.js?donotsethash=1",
 			type : "GET",
 			dataType : "script"
 		});
@@ -155,7 +155,7 @@ function keywordFn() {
 	}
 	if (!$("#entries")[0]) {
 		$.ajax({
-			url : "list.js?donotsethash=1",
+			url : "log.js?donotsethash=1",
 			type : "GET",
 			dataType : "script"
 		});

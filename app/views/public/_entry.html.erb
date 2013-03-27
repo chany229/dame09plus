@@ -8,7 +8,7 @@
 		<% end %>
 		<div class="right">
 			<% entry.tags.each do |tag| %>
-				<%= link_to tag.name, tag_path(tag.name), :remote => true %> 
+				<%= link_to tag.name, tag_path(tag.name), :remote => remote? %> 
 			<% end %> |
 			<%= entry.created_at.to_s %> |
 			<%= link_to "comments(#{entry.comments.count})", "javascript:void(0);"%>

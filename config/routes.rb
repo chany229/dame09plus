@@ -1,5 +1,7 @@
 Dame09plus::Application.routes.draw do
 
+  get "comments/index"
+
   devise_for :users
 
   get "admin" => "admin#index", :as => :admin
@@ -12,7 +14,7 @@ Dame09plus::Application.routes.draw do
   match 'detail(.:format)' => 'public#detail', :as => :detail
   match 'top(.:format)' => 'public#top', :as => :top
   
-  match 'list(/p:page)(.:format)' => 'public#list', :as => :list
+  match 'log(/p:page)(.:format)' => 'public#log', :as => :log
   
   match 'date/:year(/p:page)(.:format)' => 'public#date',:as => :year
   match 'date/:year/:month(/p:page)(.:format)' => 'public#date',:as => :month
@@ -21,6 +23,8 @@ Dame09plus::Application.routes.draw do
   match 'calendar/:datetime(.:format)' => 'public#calendar', :as => :calendar
   match 'tag/:tag(/p:page)(.:format)' => 'public#tag', :as => :tag
   match 'keyword(/:keyword)((/p:page).:format)' => 'public#keyword', :as => :keyword
+  
+  match 'change_format' => "public#change_format", :as => 'change_format'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

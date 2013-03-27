@@ -7,11 +7,11 @@
       <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
           Time.new(datetime.year,1,1).beginning_of_year,
           Time.new(datetime.year,1,1).end_of_year]).empty?, "#{datetime.year}年",
-          year_path(datetime.year), :remote => true %>
+          year_path(datetime.year), :remote => remote? %>
       <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
           Time.new(datetime.year,datetime.month,1).beginning_of_month,
           Time.new(datetime.year,datetime.month,1).end_of_month]).empty?, "#{datetime.month}月",
-          month_path(datetime.year,datetime.month), :remote => true %>
+          month_path(datetime.year,datetime.month), :remote => remote? %>
     </td>
     <td>
       <%= link_to '>>', calendar_path(datetime.next_month.to_i), :remote => true %>
@@ -46,7 +46,7 @@
         <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
             Time.new(datetime.year,datetime.month,date).beginning_of_day,
             Time.new(datetime.year,datetime.month,date).end_of_day]).empty?,
-          date, day_path(datetime.year,datetime.month,date), :remote => true %>
+          date, day_path(datetime.year,datetime.month,date), :remote => remote? %>
       </td>
       <% if Time.new(datetime.year,datetime.month,date).wday == 6%>
       </tr>

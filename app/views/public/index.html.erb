@@ -42,7 +42,7 @@
             	font-weight: bolder;
             	padding-top: 12px;
 			}
-			#links {
+			.links {
 				font-size: 10px;
             	padding-top: 20px;
 			}
@@ -54,16 +54,22 @@
 			<div id="content">
 				<%= image_tag("banner.png") %>
 				<br/>
-				废言满载日记站，混有少量瞎眼版权绘
+				某脱腐中程序猿的废言满载日记站
 				<br/>
-				对<span>二次元</span>、<span>再创作</span>、<span>腐</span>等词汇不明或反感者请<span>全速脱出</span>
+				混有少量票友级瞎眼版权绘
 				<br/>
-				确实理解以上内容后请点击<%= link_to "这里", top_path %>进入
-				<br/>
+				对<span>二次元</span>、<span>再创作</span>等词汇不明或反感者请<span>全速脱出</span>
 				<div id="notice">
-					本站内容与原作者、制作公司、历史人物等无关，特此声明
+					本站内容与原作者、制作公司、历史人物等无关
+					<br/>
+					特此声明
 				</div>
-				<div id="links">
+				<div class="links">
+					<%= link_to "AJAX版入口", top_path(:type => :js) %><span>（推荐，请确保开启javascript）</span>
+					<br/>
+					<%= link_to "传统版入口", top_path(:type => :html) %>
+				</div>
+				<div class="links">
 					<% if current_user %>
 			    		<%= current_user.username %>
 			    		<% if current_user.has_role?("admin") %>

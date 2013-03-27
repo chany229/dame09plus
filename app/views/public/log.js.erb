@@ -1,0 +1,5 @@
+$("#menu").html("<%= j render "public/menu" %>");
+$("#content").html("<%= j render "public/list" %>");
+<% if @sethash %>
+setHash("<%= @hash %>");
+<% end %>

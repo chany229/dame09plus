@@ -2,7 +2,7 @@
   <head>
     <title>马太目欢乐颂+</title>
     <%= stylesheet_link_tag    "yamato_raven", :media => "all" %>
-    <%= javascript_include_tag "application","hashchange","ajax","canvas_test" %>
+    <%= javascript_include_tag "application","hashchange","ajax" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -19,6 +19,11 @@
     		<% else %>
     		<%= link_to '登录', new_session_path(:user) %>
     		<%= link_to '注册', new_registration_path(:user) %>
+    		<% end %>
+    		<% if remote? %>
+    		<%= link_to "切换为传统版", change_format_path %>
+    		<% else %>
+    		<%= link_to "切换为AJAX版", change_format_path %>
     		<% end %>
     	</div>
     </header>

@@ -57,11 +57,6 @@ end
 gem 'therubyracer'
 gem 'execjs'
 
-#用户认证
-#gem "devise", '2.1.0'
-#gem "cancan", '1.6.5'
-#gem 'rolify'
-
 gem 'will_paginate', '3.0.4'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 #gem "paperclip", "~> 3.0"

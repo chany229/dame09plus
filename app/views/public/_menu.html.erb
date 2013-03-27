@@ -1,5 +1,5 @@
-<%= link_to(raw("<li#{" class='current'" if action_name == "top"}>TOP</li>"), "/top.js", :remote => true)%>
-<%= link_to(raw("<li#{" class='current'" if ["list","date","tag","keyword"].include?(action_name)}>LOG</li>"), "/list.js", :remote => true)%>
+<%= link_to(raw("<li#{" class='current'" if action_name == "top"}>TOP</li>"), "/top", :remote => remote?)%>
+<%= link_to(raw("<li#{" class='current'" if ["log","date","tag","keyword"].include?(action_name)}>LOG</li>"), "/log", :remote => remote?)%>
 	<li>
 		GAMES
 	</li>
