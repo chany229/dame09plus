@@ -101,12 +101,10 @@ function dateFn() {
 		hash += "|p" + page;
 	}
 	if (!$("#entries")[0]) {
-		$.ajax({
-			url : "/log.js?donotsethash=1",
-			type : "GET",
-			dataType : "script"
-		});
+		url += "?should_load_log=true"
 	}
+	console.log(url);
+	console.log(hash);
 	$.ajax({
 		url : url + ".js",
 		type : "GET",
@@ -128,12 +126,10 @@ function tagFn() {
 		hash = "#tag|" + tag + "|p" + page;
 	}
 	if (!$("#entries")[0]) {
-		$.ajax({
-			url : "log.js?donotsethash=1",
-			type : "GET",
-			dataType : "script"
-		});
+		url += "?should_load_log=true"
 	}
+	console.log(url);
+	console.log(hash);
 	$.ajax({
 		url : url,
 		type : "GET",
@@ -154,12 +150,10 @@ function keywordFn() {
 		hash = "#keyword|" + keyword + "|p" + page;
 	}
 	if (!$("#entries")[0]) {
-		$.ajax({
-			url : "log.js?donotsethash=1",
-			type : "GET",
-			dataType : "script"
-		});
+		url += "?should_load_log=true"
 	}
+	console.log(url);
+	console.log(hash);
 	$.ajax({
 		url : url,
 		type : "GET",

@@ -13,5 +13,3 @@
 //= require jquery-1.8.0
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require hashchange
-//= require_tree .

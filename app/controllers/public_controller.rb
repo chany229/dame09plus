@@ -67,7 +67,13 @@ class PublicController < ApplicationController
         @tags = Entry.tag_counts_on(:tags).order('count desc')
         render :action => :log
       }
-      format.js { render 'search.js.erb' }
+      format.js {
+        if @should_load_log = params[:should_load_log] || false
+          @date = Time.new(@year, @month, @day)
+          @tags = Entry.tag_counts_on(:tags).order('count desc')
+        end
+        render 'search.js.erb'
+      }
     end
   end
 
@@ -85,7 +91,13 @@ class PublicController < ApplicationController
         @tags = Entry.tag_counts_on(:tags).order('count desc')
         render :action => :log
       }
-      format.js { render 'search.js.erb' }
+      format.js {
+        if @should_load_log = params[:should_load_log] || false
+          @date = Time.now
+          @tags = Entry.tag_counts_on(:tags).order('count desc')
+        end
+        render 'search.js.erb'
+      }
     end
   end
 
@@ -99,11 +111,17 @@ class PublicController < ApplicationController
     @filter = "关键词[#{keyword}]"
     respond_to do |format|
       format.html {
-        @date = Time.new(@year, @month, @day)
+        @date = Time.now
         @tags = Entry.tag_counts_on(:tags).order('count desc')
         render :action => :log
       }
-      format.js { render 'search.js.erb' }
+      format.js {
+        if @should_load_log = params[:should_load_log] || false
+          @date = Time.now
+          @tags = Entry.tag_counts_on(:tags).order('count desc')
+        end
+        render 'search.js.erb'
+      }
     end
   end
 

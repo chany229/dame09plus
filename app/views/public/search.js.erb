@@ -1,2 +1,7 @@
-$("#entries").html("<%= j render "public/entries" %>");
+<% if @should_load_log %>
+	$("#menu").html("<%= j render "public/menu" %>");
+	$("#content").html("<%= j render "public/list" %>");
+<% else %>
+	$("#entries").html("<%= j render "public/entries" %>");
+<% end %>
 setHash("<%= @hash %>");
