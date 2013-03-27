@@ -25,6 +25,7 @@ Dame09plus::Application.routes.draw do
   match 'keyword(/:keyword)((/p:page).:format)' => 'public#keyword', :as => :keyword
   
   match 'change_format' => "public#change_format", :as => 'change_format'
+  post 'create_comment' => "public#create_comment", :as => 'create_comment'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

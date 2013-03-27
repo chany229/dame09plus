@@ -1,0 +1,10 @@
+<%= form_tag create_comment_path, :remote => remote? do %>
+	<%= hidden_field_tag 'comment[commentable_id]', :value => entry.id %>
+	<%= hidden_field_tag 'comment[commentable_type]', :value => 'Entry' %>
+	<% if current_user %>
+		<%= hidden_field_tag 'comment[user_id]', :value => current_user.id %>
+	<% else %>
+		<%= text_field_tag 'comment[username]', '', :placeholder => "输入昵称" %> 或 <%= link_to '登录', new_session_path(:user) %>/<%= link_to '注册', new_registration_path(:user) %>
+	<% end %>
+	<%= text_area_tag 'comment[comment]', '', :placeholder => "请在此输入留言" %>
+<% end %>
