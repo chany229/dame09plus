@@ -1,6 +1,8 @@
+<h1>评论一览</h1>
 <table>
 	<tr>
 		<th></th>
+		<th>ID</th>>
 		<th>用户</th>
 		<th>评论</th>
 		<th>操作</th>
@@ -9,14 +11,15 @@
 		<tr>
 			<td>
 				<% if @last_readed_comment_id < comment.id %>
-					new!
+					<span class='red'>new!</span>
 				<% end %>
 			</td>
+			<td><%= comment.id %></td>
 			<td>
 				<% if comment.user %>
 					<%= comment.user.username %>
 				<% else %>
-					匿名用户
+					匿名用户（<%= comment.username %>）
 				<% end %>
 			</td>
 			<td>
@@ -24,7 +27,7 @@
 			</td>
 			<td>
 				回覆 删除
-			</td>>
+			</td>
 		</tr>
 	<% end %>
 </table>

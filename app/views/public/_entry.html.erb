@@ -11,15 +11,34 @@
 				<%= link_to tag.name, tag_path(tag.name), :remote => remote? %> 
 			<% end %> |
 			<%= entry.created_at.to_s %> |
-			<%= link_to "comments(#{entry.comments.count})", "javascript:void(0);"%>
+			<%= link_to "comments(#{entry.comments.count})", "javascript:void(0);", :onclick => "$('#comments_of_e#{entry.id}').toggle();" %>
 		</div>
 		<div class="clear"></div>
 	</div>
 	<% if entry.article %>
-		<hr/>
 		<div id="article_of_e<%= entry.id %>" class="article">
 			<%= simple_format entry.article.body %>
+			<div class="entry_links">
+				<div class="left">
+					<%= link_to "隐藏全文", "javascript:void(0);", :onclick => "$('#article_of_e#{entry.id}').toggle();" %>
+				</div>
+				<div class="right">
+					<% entry.tags.each do |tag| %>
+						<%= link_to tag.name, tag_path(tag.name), :remote => remote? %> 
+					<% end %> |
+					<%= entry.created_at.to_s %> |
+					<%= link_to "comments(#{entry.comments.count})", "javascript:void(0);", :onclick => "$('#comments_of_e#{entry.id}').toggle();" %>
+				</div>
+				<div class="clear"></div>
+			</div>
 		</div>
 	<% end %>
-	<%= render "public/comment_form", :entry => entry %>
+	<div id="comments_of_e<%= entry.id %>" class="comments">
+		<%= render "public/comment_form", :entry => entry %>
+		<% entry.comments.each do |comment| %>
+			<%= if comment.user then comment.user.username else comment.username end %>：
+			<%= comment.comment %>
+			<br/>
+		<% end %>
+	</div>
 </div>

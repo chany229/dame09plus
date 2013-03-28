@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+  	<th>ID</th>
     <th>Entry</th>
     <th>Body</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @articles.each do |article| %>
   <tr>
+  	<td><%= article.id %></td>
     <td><%= article.entry_id %></td>
     <td><%= article.body %></td>
     <td><%= link_to 'Show', [:admin, article] %></td>
@@ -19,7 +21,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate @articles %>
 <br />
 
 <%= link_to 'New Article', new_admin_article_path %>

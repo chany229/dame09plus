@@ -5,7 +5,7 @@ class Admin::EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.order('created_at desc').paginate(:page => params[:page] || 1, :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb

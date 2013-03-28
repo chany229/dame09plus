@@ -10,6 +10,7 @@ Dame09plus::Application.routes.draw do
   namespace :admin do
     resources :articles
     resources :entries
+    resources :comments, :only => [:index]
   end
   match 'detail(.:format)' => 'public#detail', :as => :detail
   match 'top(.:format)' => 'public#top', :as => :top

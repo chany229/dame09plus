@@ -2,7 +2,9 @@
 
 <table>
   <tr>
-    <th>Body</th>
+  	<th>ID</th>
+    <th>内容</th>
+    <th>长文</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,14 +12,16 @@
 
 <% @entries.each do |entry| %>
   <tr>
+  	<td><%= entry.id %></td>
     <td><%= entry.body %></td>
+    <td><%= "有" if entry.article %></td>
     <td><%= link_to t('show'), [:admin, entry] %></td>
     <td><%= link_to t('edit'), edit_admin_entry_path(entry) %></td>
     <td><%= link_to t('destroy'), [:admin, entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate @entries %>
 <br />
 
 <%= link_to "#{t "new"}#{t "entry"}", new_admin_entry_path %>

@@ -50,8 +50,6 @@ table, tr, td{
 table {
 }
 input[type=text],input[type=password],input[type=email],textarea{
-    width: 120px;
-    height: 24px;
     border-radius: 12px;
     -moz-border-radius: 12px;
     -o-border-radius: 12px;
@@ -60,7 +58,7 @@ input[type=text],input[type=password],input[type=email],textarea{
     background-color: rgba(63,49,43,0.5);
     color: $yellow;
     margin: 0;
-    padding: 0;
+    padding: 2px;
     &:focus{
       transition: border linear .2s,box-shadow linear .5s;
       -moz-transition: border linear .2s,-moz-box-shadow linear .5s;
@@ -73,6 +71,13 @@ input[type=text],input[type=password],input[type=email],textarea{
       -o-box-shadow: 0 0 12px $green;
       -webkit-box-shadow: 0 0 12px $green;
     }
+}
+input[type=text],input[type=password],input[type=email]{
+    width: 120px;
+    height: 24px;
+}
+textarea {
+  width: 100%;
 }
 ::-webkit-input-placeholder { color: $green; }
 ::-moz-placeholder { color: $green; } /* firefox 19+ */
@@ -234,7 +239,7 @@ p.notice, p.alert {
   padding: 20px 20px 0;
   margin: 0 0 20px;
 }
-.article {
+.article, .comments {
   padding: 0 0 20px;
   display: none;
 }
@@ -291,13 +296,13 @@ p.notice, p.alert {
     }
   }
 }
-.block:hover {
+/*.block:hover {
   background: -moz-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
   background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
   background: -ms-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
   background: -o-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
   background: linear-gradient(bottom, rgba(0,0,0,0.7), #000 );
-}
+}*/
 .left {
   float: left;
 }
