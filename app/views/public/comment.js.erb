@@ -1,0 +1,2 @@
+$("#comments_of_e<%= @comment.commentable_id %>").append("<%= j(render "public/comment", :comment => @comment) %>");
+$("#comment_area_for_e<%= @comment.commentable_id %>").val("");

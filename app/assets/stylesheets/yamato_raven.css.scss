@@ -242,6 +242,10 @@ p.notice, p.alert {
 .article, .comments {
   padding: 0 0 20px;
   display: none;
+  clear: both;
+}
+.comment_error_msg {
+  color: $pink;
 }
 .entry_links {
   font-size: 10px;
@@ -303,4 +307,5 @@ p.notice, p.alert {
   background: -o-linear-gradient(bottom, rgba(0,0,0,0.7), #000);
   background: linear-gradient(bottom, rgba(0,0,0,0.7), #000 );
 }*/
+.margintb {margin: 5px 0;}
 /*classes*/

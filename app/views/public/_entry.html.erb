@@ -36,7 +36,7 @@
 	<div id="comments_of_e<%= entry.id %>" class="comments">
 		<%= render "public/comment_form", :entry => entry %>
 		<% entry.comments.each do |comment| %>
-			<%= if comment.user then comment.user.username else comment.username end %>：
+			<%= comment.username %>：
 			<%= comment.comment %>
 			<br/>
 		<% end %>

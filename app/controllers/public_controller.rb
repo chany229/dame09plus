@@ -154,10 +154,10 @@ class PublicController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to :back, notice: '留言成功' }
-        format.js {}
+        format.js { render "comment" }
       else
         format.html { redirect_to :back, notice: '留言失败' }
-        format.js {}
+        format.js { render :js => "$('#comment_error_msg_for_e#{@comment.commentable_id}').html('#{@comment.errors.first[1]}')" }
       end
     end
   end
