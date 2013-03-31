@@ -163,6 +163,7 @@ p.notice, p.alert {
 	list-style-type: none;
 	margin:20px -20px 20px 20px;
 	padding: 10px;
+  background: #000;
   background: -moz-linear-gradient(left, #000, rgba(0,0,0,0.7));
   background: -webkit-linear-gradient(left, #000, rgba(0,0,0,0.7));
   background: -ms-linear-gradient(left, #000, rgba(0,0,0,0.7));
@@ -248,7 +249,7 @@ p.notice, p.alert {
   color: $pink;
 }
 .entry_links {
-  font-size: 10px;
+  font-size: 11px;
   padding: 10px 0;
 }
 #logs_info {
@@ -279,7 +280,8 @@ p.notice, p.alert {
   }
 }
 .block {
-  background: rgba(0,0,0,0.7);
+  background-color: #000;
+  background-color: rgba(0,0,0,0.7);
   border-radius: $block_radius;
   -moz-border-radius: $block_radius;
   -webkit-border-radius: $block_radius;

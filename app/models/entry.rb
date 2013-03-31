@@ -7,6 +7,8 @@ class Entry < ActiveRecord::Base
   attr_accessible :body, :tags_with_space
   attr_accessor :tags_with_space
   
+  validates :tags_with_space, :length => { :maximum => 15 }
+
   has_one :article
 
   before_save :split_tags
