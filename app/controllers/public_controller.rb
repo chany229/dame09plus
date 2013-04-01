@@ -11,7 +11,7 @@ class PublicController < ApplicationController
   
   def top
     if params[:type]
-      session[:format] = params[:type]
+      session[:format] = cookies[:format] = params[:type]
     end
     respond_to do |format|
       format.html
@@ -134,9 +134,9 @@ class PublicController < ApplicationController
   
   def change_format
     if session[:format] == 'js'
-      session[:format] = 'html'
+      session[:format] = cookies[:format] = 'html'
     else
-      session[:format] = 'js'
+      session[:format] = cookies[:format] = 'js'
     end
     redirect_to :back
   end

@@ -54,8 +54,8 @@ group :test do
   gem 'capybara', '1.1.2'
 end
 
-#gem 'therubyracer'
-#gem 'execjs'
+gem 'therubyracer'
+gem 'execjs'
 
 gem 'will_paginate', '3.0.4'
 gem "galetahub-simple_captcha", :require => "simple_captcha"

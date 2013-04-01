@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
     root_path
   end
   
+  def check_format
+    if cookies[:format] and not session[:format]
+      session[:format] = cookies[:format]
+    end
+  end
+
   def should_be_admin
     unless current_user && current_user.has_role?("admin")
       redirect_to top_path, :alert => "您没有操作权限"
