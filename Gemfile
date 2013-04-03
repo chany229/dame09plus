@@ -58,7 +58,7 @@ gem 'therubyracer'
 gem 'execjs'
 
 gem 'will_paginate', '3.0.4'
-gem "galetahub-simple_captcha", :require => "simple_captcha"
+#gem "galetahub-simple_captcha", :require => "simple_captcha" #验证码
 #gem "paperclip", "~> 3.0"
 #gem 'rmagick','2.13.1'
 #gem 'mini_magick', "3.3"
@@ -66,17 +66,13 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'acts_as_commentable', '3.0.1'
 
-#gem 'anjlab-bootstrap-rails', '>= 2.2', :require => 'bootstrap-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'bootstrap_helper'
-#gem "less-rails", "~> 2.2.6"
-#gem 'therubyracer-heroku', :platform => :ruby
-
 
 #gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"#检查查询语句
 
-gem "rails-settings-cached", "0.2.4"
+gem "rails-settings-cached", "0.2.4" #设置
 
 #用户认证
 gem "devise", '2.1.0'
