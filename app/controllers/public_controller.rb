@@ -19,7 +19,7 @@ class PublicController < ApplicationController
     end
   end
 
-  def log
+  def logs
     per_page = AppConfig.entries_perpage
     @page    = params[:page]||1
     @date    = Time.now
@@ -131,7 +131,15 @@ class PublicController < ApplicationController
       format.js
     end
   end
+
+  def games
+    @games = Game.order('created_at desc').paginate(:page => params[:page] || 1, :per_page => 10)
+  end
   
+  def game
+    @game = Game.find_by_id params[:id]
+  end
+
   def change_format
     if session[:format] == 'js'
       session[:format] = cookies[:format] = 'html'

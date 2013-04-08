@@ -1,3 +1,4 @@
+# encoding: utf-8
 source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.13'#升级用bundle update rails
@@ -54,15 +55,15 @@ group :test do
   gem 'capybara', '1.1.2'
 end
 
-gem 'therubyracer'
-gem 'execjs'
+#gem 'therubyracer'
+#gem 'execjs'
 
 gem 'will_paginate', '3.0.4'
 #gem "galetahub-simple_captcha", :require => "simple_captcha" #验证码
 #gem "paperclip", "~> 3.0"
 #gem 'rmagick','2.13.1'
 #gem 'mini_magick', "3.3"
-#gem 'carrierwave','0.6.2'
+gem 'carrierwave','0.6.2'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'acts_as_commentable', '3.0.1'
 

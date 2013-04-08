@@ -1,5 +1,10 @@
 Dame09plus::Application.routes.draw do
 
+  namespace :admin do
+    resources :games
+  end
+
+
   get "comments/index"
 
   devise_for :users
@@ -15,7 +20,9 @@ Dame09plus::Application.routes.draw do
   match 'detail(.:format)' => 'public#detail', :as => :detail
   match 'top(.:format)' => 'public#top', :as => :top
   
-  match 'log(/p:page)(.:format)' => 'public#log', :as => :log
+  match 'logs(/p:page)(.:format)' => 'public#logs', :as => :logs
+  match 'games(/p:page)(.:format)' => 'public#games', :as => :games
+  match 'game/:id(.:format)' => 'public#game', :as => :game
   
   match 'date/:year(/p:page)(.:format)' => 'public#date',:as => :year
   match 'date/:year/:month(/p:page)(.:format)' => 'public#date',:as => :month

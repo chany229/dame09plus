@@ -38,19 +38,19 @@
     <% for date in 1..Time.days_in_month(datetime.month,datetime.year) %>
       <% if Time.new(datetime.year,datetime.month,date).wday == 0 %>
         <td>
-        <% elsif Time.new(datetime.year,datetime.month,date).wday == 6 %>
+      <% elsif Time.new(datetime.year,datetime.month,date).wday == 6 %>
         <td>
-        <% else %>
+      <% else %>
         <td>
-        <% end %>
-        <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
-            Time.new(datetime.year,datetime.month,date).beginning_of_day,
-            Time.new(datetime.year,datetime.month,date).end_of_day]).empty?,
+      <% end %>
+      <%= link_to_unless Entry.where(["created_at > ? and created_at < ?",
+          Time.new(datetime.year,datetime.month,date).beginning_of_day,
+          Time.new(datetime.year,datetime.month,date).end_of_day]).empty?,
           date, day_path(datetime.year,datetime.month,date), :remote => remote? %>
       </td>
       <% if Time.new(datetime.year,datetime.month,date).wday == 6%>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
       <% end %>
     <% end %>
   </tr>

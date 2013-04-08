@@ -1,0 +1,25 @@
+<%= form_for([:admin, @game], :html => {:multipart => true}) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this admin_game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :js_file %><br />
+    <%= f.file_field :js_file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
