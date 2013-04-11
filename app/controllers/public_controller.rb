@@ -13,10 +13,6 @@ class PublicController < ApplicationController
     if params[:type]
       session[:format] = cookies[:format] = params[:type]
     end
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def logs
@@ -29,10 +25,6 @@ class PublicController < ApplicationController
     @hash   += "|p#{@page}" if params[:page]
     @sethash = true unless params[:donotsethash]
     @filter  = "全部"
-    respond_to do |format|
-      format.js
-      format.html
-    end
   end
 
   def date
@@ -126,18 +118,16 @@ class PublicController < ApplicationController
   end
 
   def detail
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def games
     @games = Game.order('created_at desc').paginate(:page => params[:page] || 1, :per_page => 10)
+    @hash = "#games"
   end
   
   def game
     @game = Game.find_by_id params[:id]
+    @hash = "#game#{@game.id}"
   end
 
   def change_format
@@ -150,7 +140,7 @@ class PublicController < ApplicationController
   end
   
   def calendar
-    @date=Time.at(params[:datetime].to_i)
+    @date = Time.at(params[:datetime].to_i)
     respond_to do |format|
       format.js
     end

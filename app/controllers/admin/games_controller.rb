@@ -1,4 +1,7 @@
 class Admin::GamesController < ApplicationController
+  
+  layout "admin"
+  
   # GET /admin/games
   # GET /admin/games.json
   def index

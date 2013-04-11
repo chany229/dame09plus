@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(:version => 20130405155121) do
   create_table "games", :force => true do |t|
     t.string   "title"
     t.string   "js_file"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "width",      :default => 600
+    t.integer  "height",     :default => 600
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "roles", :force => true do |t|
