@@ -122,18 +122,18 @@ input[type=text]:focus,input[type=password]:focus,textarea:focus{
         margin: 0 20px;
         background-image: url(/assets/bg03.png);
         background-color: #fff;
-    .content {
-        color: #630;
-        padding: 10px;
-        margin: 0 10px;
-        background-color: rgba(255,255,255,0.5);
-        background: #fff url(/assets/bg02.png) no-repeat scroll bottom right;
-        min-height: 150px;
-        @include content-a;
-        .image {
-          text-align: center;
-        }
-        img {
+        .content {
+            color: #630;
+            padding: 10px;
+            margin: 0 10px;
+            background-color: rgba(255,255,255,0.5);
+            background: #fff url(/assets/bg02.png) no-repeat scroll bottom right;
+            min-height: 150px;
+            @include content-a;
+            .image {
+              text-align: center;
+          }
+          img {
             padding: 10px;
             background-image: url(/assets/bg03.png);
         }
@@ -157,15 +157,15 @@ input[type=text]:focus,input[type=password]:focus,textarea:focus{
             }
         }
     }
-    }
-    .data {
-        color: #fff;
-        text-align: right;
-        background-color: $yellow;
-        margin: 0 20px 50px;
-        background-image: url(/assets/data2.jpg);
-        a {color: #fff;}
-    }
+}
+.data {
+    color: #fff;
+    text-align: right;
+    background-color: $yellow;
+    margin: 0 20px 50px;
+    background-image: url(/assets/data2.jpg);
+    a {color: #fff;}
+}
 }
 #right {
     margin-left: 30px;
@@ -198,15 +198,15 @@ input[type=text]:focus,input[type=password]:focus,textarea:focus{
 }
 .pre_and_next {
     margin: -50px 20px 0px;
-.next {
-    float: right;
-    width: 255px;
-    text-align: right;
-}
-.previous {
-    float: left;
-    width: 255px;
-}
+    .next {
+        float: right;
+        width: 255px;
+        text-align: right;
+    }
+    .previous {
+        float: left;
+        width: 255px;
+    }
 }
 #before_paginate {
     min-height: $right_height;

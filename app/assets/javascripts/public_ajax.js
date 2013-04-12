@@ -9,7 +9,7 @@ $(window).hashchange(function() {
 });
 function doHash(a) {
 	var h = location.hash;
-	var action = h.split("|")[0];
+	var action = h.split("-")[0];
 	if (h == "") {
 		//setHash("#top");
 	} else if (action == "#log") {
@@ -20,8 +20,8 @@ function doHash(a) {
 		tagFn();
 	} else if (action == "#keyword") {
 		keywordFn();
-	} else if (h.indexOf("play_video") > -1) {
-		videoFn();
+	} else if (h.indexOf("game") > -1) {
+		gameFn();
 	} else {
 		defaultFn(action);
 	}
@@ -41,7 +41,7 @@ function defaultFn(a) {
 
 function logFn() {
 	var h = location.hash;
-	var params = h.split("|");
+	var params = h.split("-");
 	if (params.length > 1) {
 		var page = params[1].split("p")[1];
 		$.ajax({
@@ -62,7 +62,7 @@ function logFn() {
 
 function dateFn() {
 	var h = location.hash;
-	var params = h.split("|");
+	var params = h.split("-");
 	var size = params.length;
 	var year, month, day, page;
 	var has_year = has_month = has_day = has_page = false;
@@ -86,19 +86,19 @@ function dateFn() {
 	var hash = "#date"
 	if (has_year) {
 		url += "/" + year;
-		hash += "|y" + year;
+		hash += "-y" + year;
 		if (has_month) {
 			url += "/" + month;
-			hash += "|m" + month;
+			hash += "-m" + month;
 			if (has_day) {
 				url += "/" + day;
-				hash += "|d" + day;
+				hash += "-d" + day;
 			}
 		}
 	}
 	if (has_page) {
 		url += "/p" + page;
-		hash += "|p" + page;
+		hash += "-p" + page;
 	}
 	if (!$("#entries")[0]) {
 		url += "?should_load_log=true"
@@ -115,15 +115,15 @@ function dateFn() {
 
 function tagFn() {
 	var h = location.hash;
-	var params = h.split("|")
+	var params = h.split("-");
 	var tag = params[1];
 	var url, hash;
 	url = "/tag/" + tag + ".js";
-	hash = "#tag|" + tag;
+	hash = "#tag-" + tag;
 	if (params.length > 2) {
 		page = params[2].split("p")[1];
 		url = "/tag/" + tag + "/p" + page + ".js";
-		hash = "#tag|" + tag + "|p" + page;
+		hash = "#tag-" + tag + "-p" + page;
 	}
 	if (!$("#entries")[0]) {
 		url += "?should_load_log=true"
@@ -139,15 +139,15 @@ function tagFn() {
 }
 function keywordFn() {
 	var h = location.hash;
-	var params = h.split("|")
+	var params = h.split("-");
 	var keyword = params[1];
 	var url, hash;
 	url = "/keyword/" + keyword + ".js";
-	hash = "#keyword|" + keyword;
+	hash = "#keyword-" + keyword;
 	if (params.length > 2) {
 		page = params[2].split("p")[1];
 		url = "/keyword/" + keyword + "/p" + page + ".js";
-		hash = "#keyword|" + keyword + "|p" + page;
+		hash = "#keyword-" + keyword + "-p" + page;
 	}
 	if (!$("#entries")[0]) {
 		url += "?should_load_log=true"
@@ -160,6 +160,20 @@ function keywordFn() {
 		dataType : "script"
 	});
 	setHash(hash);
+}
+function gameFn() {
+	var h = location.hash;
+	var params = h.split("game");
+	if (params[1] == "s") {
+		defaultFn("#games");
+	} else {
+		$.ajax({
+			url : "/game/" + params[1] + ".js",
+			type : "GET",
+			dataType : "script"
+		});
+		setHash(h);
+	}
 }
 //setHash("#my_tickets");
 doHash(1);

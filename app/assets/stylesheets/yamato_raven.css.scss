@@ -40,41 +40,41 @@ a{
 }
 span {display: inline-block;}
 hr {
-    height: 1px;
-    border: none;
-    border-top: 1px solid #000;
+  height: 1px;
+  border: none;
+  border-top: 1px solid #000;
 }
 table, tr, td{
-    vertical-align: top;
+  vertical-align: top;
 }
 table {
 }
 input[type=text],input[type=password],input[type=email],textarea{
-    border-radius: 12px;
-    -moz-border-radius: 12px;
-    -o-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    border: 0px solid $yellow;
-    background-color: rgba(63,49,43,0.5);
-    color: $yellow;
-    margin: 0;
-    padding: 2px;
-    &:focus{
-      transition: border linear .2s,box-shadow linear .5s;
-      -moz-transition: border linear .2s,-moz-box-shadow linear .5s;
-      -o-transition: border linear .2s,-moz-box-shadow linear .5s;
-      -webkit-transition: border linear .2s,-webkit-box-shadow linear .5s;
-      outline: none;
-      border-color: $green;
-      box-shadow: 0 0 12px $green;
-      -moz-box-shadow: 0 0 12px $green;
-      -o-box-shadow: 0 0 12px $green;
-      -webkit-box-shadow: 0 0 12px $green;
-    }
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -o-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border: 0px solid $yellow;
+  background-color: rgba(63,49,43,0.5);
+  color: $yellow;
+  margin: 0;
+  padding: 2px;
+  &:focus{
+    transition: border linear .2s,box-shadow linear .5s;
+    -moz-transition: border linear .2s,-moz-box-shadow linear .5s;
+    -o-transition: border linear .2s,-moz-box-shadow linear .5s;
+    -webkit-transition: border linear .2s,-webkit-box-shadow linear .5s;
+    outline: none;
+    border-color: $green;
+    box-shadow: 0 0 12px $green;
+    -moz-box-shadow: 0 0 12px $green;
+    -o-box-shadow: 0 0 12px $green;
+    -webkit-box-shadow: 0 0 12px $green;
+  }
 }
 input[type=text],input[type=password],input[type=email]{
-    width: 120px;
-    height: 24px;
+  width: 120px;
+  height: 24px;
 }
 textarea {
   width: 100%;
@@ -224,7 +224,7 @@ p.notice, p.alert {
 	margin: 0px;
 }
 #canvas_body {
-	margin: 40px;
+	// margin: 40px;
 }
 #entries {
   float: left;

@@ -1,4 +1,4 @@
 <% @games.each do |game| %>
-<%= link_to game.title, game_path(game) %>
+<%= link_to game.title, game_path(game), :remote => remote? %>
 <% end %>
 <%= will_paginate @games %>
