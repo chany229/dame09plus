@@ -1,5 +1,6 @@
 # encoding: utf-8
-source 'http://ruby.taobao.org'
+#source 'http://ruby.taobao.org'
+source 'http://rubygems.org/'
 
 gem 'rails', '3.2.13'#升级用bundle update rails
 
@@ -40,7 +41,7 @@ gem 'jquery-rails'
 group :development do
   # gem 'mongrel', '>= 1.2.0.pre2'
   #  gem 'thin'
-  gem 'quiet_assets'#, "1.0.1"
+#  gem 'quiet_assets'#, "1.0.1"
 end
 
 =begin
@@ -49,14 +50,14 @@ end
 
 group :test do
   gem "rspec-rails"
-  gem 'database_cleaner'
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
-  gem 'capybara', '1.1.2'
+#  gem 'database_cleaner'
+#  gem 'factory_girl'
+#  gem 'factory_girl_rails'
+#  gem 'capybara', '1.1.2'
 end
 
-# gem 'therubyracer'
-# gem 'execjs'
+ gem 'therubyracer'
+ gem 'execjs'
 
 gem 'will_paginate', '3.0.4'
 #gem "galetahub-simple_captcha", :require => "simple_captcha" #验证码
